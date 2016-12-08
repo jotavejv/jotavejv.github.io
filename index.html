@@ -7,11 +7,19 @@
     <meta name="description" content="Jotavejv : " />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <script>
+      var body = document.querySelector('body');
+      var theme = function(){
+        return Math.round(Math.random());
+      }();
+      console.log(theme);
+      theme === 0 ? body.classList.add('primary') : body.classList.add('second');
+    </script>
 
     <title>Jotavejv</title>
   </head>
 
-  <body>
+  <body class="primary">
 
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
