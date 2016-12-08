@@ -10,6 +10,14 @@
   <link rel="stylesheet" type="text/css" href="css/dataurl.css">
   <script src="javascripts/pace.min.js"></script>
   <script src="javascripts/min/main.min.js"></script>
+  <script>
+      var body = document.querySelector('body');
+      var theme = function(){
+        return Math.round(Math.random());
+      }();
+      console.log(theme);
+      theme === 0 ? body.classList.add('primary') : body.classList.add('second');
+    </script>
 
   <title>João Victor JV | Front-End | CSS3 | Animations | UI Developer | jotavejv</title>
   
@@ -31,7 +39,7 @@
   </style>
 </head>
 
-<body>
+<body class="primary">
 
 <div id="wrapper" hidden>
   <p class="slogan">I'm a CSS lover</p>
