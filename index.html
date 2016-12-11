@@ -2,129 +2,157 @@
 <html>
 
 <head>
-  <meta charset='utf-8' />
-  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-  <meta name="description" content=" Freelancer, CSS3, Front-End " />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" type="text/css" href="css/jv.css">
-  <link rel="stylesheet" type="text/css" href="css/dataurl.css">
-  <script src="javascripts/pace.min.js"></script>
-  <script src="javascripts/min/main.min.js"></script>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content=" Freelancer, CSS3, Front-End, Animations, UI Developer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/jv.css">
+    <link rel="stylesheet" type="text/css" href="css/dataurl.css">
+    <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css">
+    <script src="javascripts/pace.min.js"></script>
+    <script src="javascripts/min/main.min.js"></script>
 
-  <title>João Victor JV | Front-End | CSS3 | Animations | UI Developer | jotavejv</title>
-  
-  <style>
-    
-    body.primary{
-      background-color:#000;background-image:-webkit-radial-gradient(center center,circle cover,rgba(255,255,255,.2),transparent 50%);-webkit-background-size:5px 5px;background-size:5px 5px;
-    }
-    body.second{
-      background-color:#000;background-image:-webkit-radial-gradient(center center,circle cover,rgba(255,255,255,.2),transparent 50%);-webkit-background-size:5px 5px;background-size:5px 5px;
-    }
+    <title>João Victor JV | Front-End | CSS3 | Animations | UI Developer | jotavejv</title>
 
-    
-    .site-link{
-      width:100%;
-      position: fixed;
-      bottom:0;
-      text-align:center;
-      color:#749EAD;
-      font-size: 14px;
-    }
-    .site-link a{
-      color: inherit;
-      text-decoration: none;
-    }
-    
-  </style>
+    <style>
+        body.primary {
+            background-color: #000;
+            background-image: -webkit-radial-gradient(center center, circle cover, rgba(255, 255, 255, .2), transparent 50%);
+            -webkit-background-size: 5px 5px;
+            background-size: 5px 5px;
+        }
+        
+        body.second {
+            background-color: #000;
+            background-image: -webkit-radial-gradient(center center, circle cover, rgba(255, 255, 255, .2), transparent 50%);
+            -webkit-background-size: 5px 5px;
+            background-size: 5px 5px;
+        }
+        
+        .site-link {
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            text-align: center;
+            color: lightskyblue;
+            font-size: 12px;
+            font-family: Arial, "sans-serif";
+        }
+    </style>
 </head>
 
 <body>
 
-<div id="wrapper" hidden>
-  <p class="slogan">I'm a CSS lover</p>
-  <!-- ul.avatar>li.item.item-$*36 -->
-  <ul class="avatar">
-    <li class="item item-1 hack"></li>
-    <li class="item item-2"></li>
-    <li class="item item-3"></li>
-    <li class="item item-4"></li>
-    <li class="item item-5"></li>
-    <li class="item item-6 hack"></li>
-    <li class="item item-7"></li>
-    <li class="item item-8"></li>
-    <li class="item item-9"></li>
-    <li class="item item-10"></li>
-    <li class="item item-11"></li>
-    <li class="item item-12"></li>
-    <li class="item item-13"></li>
-    <li class="item item-14"></li>
-    <li class="item item-15"></li>
-    <li class="item item-16"></li>
-    <li class="item item-17"></li>
-    <li class="item item-18"></li>
-    <li class="item item-19"></li>
-    <li class="item item-20"></li>
-    <li class="item item-21"></li>
-    <li class="item item-22"></li>
-    <li class="item item-23"></li>
-    <li class="item item-24"></li>
-    <li class="item item-25"></li>
-    <li class="item item-26"></li>
-    <li class="item item-27"></li>
-    <li class="item item-28"></li>
-    <li class="item item-29"></li>
-    <li class="item item-30"></li>
-    <li class="item item-31 hack"></li>
-    <li class="item item-32"></li>
-    <li class="item item-33"></li>
-    <li class="item item-34"></li>
-    <li class="item item-35"></li>
-    <li class="item item-36 hack"></li>
-  </ul>
-  
-  <ul class="icons">
-    <a href="http://codepen.io/jotavejv/"  target="_blank"><li class="icon icon--codepen"></li></a>
-    <a href="https://twitter.com/_jotavejv"  target="_blank"><li class="icon icon--twitter"></li></a>
-    <a href="http://br.linkedin.com/in/joaovictorjv"  target="_blank"><li class="icon icon--linkedin"></li></a>
-    <a href="https://plus.google.com/u/0/+Jo%C3%A3oVictorSantos/posts"  target="_blank"><li class="icon icon--google"></li></a>
-    <a href="mailto:contatos.jv@hotmail.com"><li class="icon icon--email"></li></a>
-  </ul>
-  
-  <div class="site-link">
-    <p><a href="http://websolucoesjv.com/" target="_blank">websolucoesjv.com</a></p>
-  </div>
-  
-  <script>
-  let body = document.querySelector('body');
-  let theme = function(){
-    return Math.round(Math.random());
-  }();
-  console.log(theme);
-  theme === 0 ? body.classList.add('primary') : body.classList.add('second');
-    
-  let model = {
-    "icons": [
-      "fa-codepen", 
-      "fa-twitter", 
-      "fa-linkedin", 
-      "fa-google-plus", 
-      "fa-envelope-o"
-    ],
-    "sentence": "I'm a CSS lover"
-  }
-  </script>
-  
-  
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  
-  ga('create', 'UA-43403124-1', 'jotavejv.github.io');
-  ga('send', 'pageview');
-  </script>
-  </div>
+    <div id="wrapper" hidden>
+        <p class="slogan">I'm a CSS lover</p>
+        <!-- ul.avatar>li.item.item-$*36 -->
+        <ul class="avatar">
+            <li class="item item-1 hack"></li>
+            <li class="item item-2"></li>
+            <li class="item item-3"></li>
+            <li class="item item-4"></li>
+            <li class="item item-5"></li>
+            <li class="item item-6 hack"></li>
+            <li class="item item-7"></li>
+            <li class="item item-8"></li>
+            <li class="item item-9"></li>
+            <li class="item item-10"></li>
+            <li class="item item-11"></li>
+            <li class="item item-12"></li>
+            <li class="item item-13"></li>
+            <li class="item item-14"></li>
+            <li class="item item-15"></li>
+            <li class="item item-16"></li>
+            <li class="item item-17"></li>
+            <li class="item item-18"></li>
+            <li class="item item-19"></li>
+            <li class="item item-20"></li>
+            <li class="item item-21"></li>
+            <li class="item item-22"></li>
+            <li class="item item-23"></li>
+            <li class="item item-24"></li>
+            <li class="item item-25"></li>
+            <li class="item item-26"></li>
+            <li class="item item-27"></li>
+            <li class="item item-28"></li>
+            <li class="item item-29"></li>
+            <li class="item item-30"></li>
+            <li class="item item-31 hack"></li>
+            <li class="item item-32"></li>
+            <li class="item item-33"></li>
+            <li class="item item-34"></li>
+            <li class="item item-35"></li>
+            <li class="item item-36 hack"></li>
+        </ul>
+
+        <ul class="icons"></ul>
+
+        <div class="site-link">
+            <p><a href="http://websolucoesjv.com/" target="_blank">websolucoesjv.com</a></p>
+        </div>
+    </div>
+    <script>
+        let body = document.body,  
+            ul = document.querySelector('.icons'),
+            slogan = document.querySelector('.slogan');
+            theme = function () {
+            return Math.round(Math.random());
+        }();
+        console.log(theme);
+        theme === 0 ? body.classList.add('primary') : body.classList.add('second');
+
+        let model = {
+            "icons": [{
+                "name" : "fa-codepen",
+                "url" : "http://codepen.io/jotavejv/"
+            },
+            {
+                "name" : "fa-linkedin",
+                "url" : "http://br.linkedin.com/in/joaovictorjv"
+            },
+            {
+                "name" : "fa-twitter",
+                "url" : "https://twitter.com/_jotavejv"
+            },
+            {
+                "name" : "fa-google-plus",
+                "url" : "https://plus.google.com/u/0/+Jo%C3%A3oVictorSantos/posts"
+            },
+            {
+                "name" : "fa-envelope-o",
+                "url" : "mailto:contatos.jv@hotmail.com"
+            }],
+            "sentence": "I'm a CSS lover"
+        }
+        model.icons.forEach((icon) => {
+            let listItem = document.createElement("li");
+            listItem.classList.add("icon");
+            listItem.innerHTML = 
+            `<a href='${icon.url}' target="_blank">
+                <i class='fa ${icon.name}'><i/>
+            </a>`;
+            ul.appendChild(listItem);
+        });
+        slogan.textContent = model.sentence;
+    </script>
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-43403124-1', 'jotavejv.github.io');
+        ga('send', 'pageview');
+    </script>
 </body>
+
 </html>
