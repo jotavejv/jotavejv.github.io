@@ -246,7 +246,7 @@ a{
 }
 
 .icon {
-	opacity: 0;
+    opacity: 0;
     display: inline-block;
     margin: 0 5px;
     height: 32px;
@@ -278,7 +278,7 @@ a{
 }
 
 .icon:hover {
-    color: lightskyblue;
+    color: lightskyblue !important;
 }
 
 .site-link {
