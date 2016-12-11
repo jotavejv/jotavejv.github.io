@@ -10,40 +10,52 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/dataurl.css"> -->
     <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css">
     <script src="javascripts/min/main.min.js"></script>
-
     <title>João Victor JV | Front-End | CSS3 | Animations | UI Developer | jotavejv</title>
-
     <style>
-        body.primary {
-            background-color: #000;
-            background-image: -webkit-radial-gradient(center center, circle cover, rgba(255, 255, 255, .2), transparent 50%);
-            -webkit-background-size: 5px 5px;
-            background-size: 5px 5px;
-        }
-        
-        body.second {
-            background-color: #000;
-            background-image: -webkit-radial-gradient(center center, circle cover, rgba(255, 255, 255, .2), transparent 50%);
-            -webkit-background-size: 5px 5px;
-            background-size: 5px 5px;
-        }
-        
-        .site-link {
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            text-align: center;
-            color: lightskyblue;
-            font-size: 12px;
-            font-family: Arial, "sans-serif";
-        }
+
+    body.primary {
+        background-color: #000;
+        background-image: -webkit-radial-gradient(center center, circle cover, rgba(255, 255, 255, .2), transparent 50%);
+        -webkit-background-size: 5px 5px;
+        background-size: 5px 5px;
+    }
+
+    body.primary .slogan{
+        color: rgba(255, 255, 255, .8);
+    }
+
+    body.primary .icon{
+        color: #fff;
+    }
+    
+    body.second {
+        background: #f7f7f7;
+    }
+
+    body.second .slogan{
+        color: gray;
+        text-shadow:  none;
+    }
+
+    body.second .icon{
+        color: lightseagreen;
+    } 
+
+    body.second .avatar{
+        background-color: rgba(0,0,0,0.65);
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.38), 0 0 0 8px lightgray;
+    }
+
+    body.second .site-link{
+        color: gray;
+    }
+
     </style>
 </head>
 
 <body>
-
     <div id="wrapper" hidden>
-        <p class="slogan">I'm a CSS lover</p>
+        <p class="slogan"></p>
         <!-- ul.avatar>li.item.item-$*36 -->
         <ul class="avatar">
             <li class="item item-1 hack"></li>
@@ -83,18 +95,17 @@
             <li class="item item-35"></li>
             <li class="item item-36 hack"></li>
         </ul>
-
         <ul class="icons"></ul>
-
         <div class="site-link">
             <p><a href="http://websolucoesjv.com/" target="_blank">websolucoesjv.com</a></p>
         </div>
     </div>
     <script>
-        let body = document.body,  
+    function init() {
+        let body = document.body,
             ul = document.querySelector('.icons'),
             slogan = document.querySelector('.slogan');
-            theme = function () {
+        theme = function() {
             return Math.round(Math.random());
         }();
         console.log(theme);
@@ -102,55 +113,54 @@
 
         let model = {
             "icons": [{
-                "name" : "fa-codepen",
-                "url" : "http://codepen.io/jotavejv/"
-            },
-            {
-                "name" : "fa-linkedin",
-                "url" : "http://br.linkedin.com/in/joaovictorjv"
-            },
-            {
-                "name" : "fa-twitter",
-                "url" : "https://twitter.com/_jotavejv"
-            },
-            {
-                "name" : "fa-google-plus",
-                "url" : "https://plus.google.com/u/0/+Jo%C3%A3oVictorSantos/posts"
-            },
-            {
-                "name" : "fa-envelope-o",
-                "url" : "mailto:contatos.jv@hotmail.com"
+                "name": "fa-codepen",
+                "url": "http://codepen.io/jotavejv/"
+            }, {
+                "name": "fa-linkedin",
+                "url": "http://br.linkedin.com/in/joaovictorjv"
+            }, {
+                "name": "fa-twitter",
+                "url": "https://twitter.com/_jotavejv"
+            }, {
+                "name": "fa-google-plus",
+                "url": "https://plus.google.com/u/1/communities/118377057769827266257"
+            }, {
+                "name": "fa-envelope-o",
+                "url": "mailto:contatos.jv@hotmail.com"
             }],
             "sentence": "I'm a CSS lover"
         }
         model.icons.forEach((icon) => {
             let listItem = document.createElement("li");
             listItem.classList.add("icon");
-            listItem.innerHTML = 
-            `<a href='${icon.url}' target="_blank">
+            listItem.innerHTML =
+                `<a href='${icon.url}' target="_blank">
                 <i class='fa ${icon.name}'><i/>
             </a>`;
             ul.appendChild(listItem);
         });
         slogan.textContent = model.sentence;
+    }
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+        init();
+    });
     </script>
-
-
     <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-43403124-1', 'jotavejv.github.io');
-        ga('send', 'pageview');
+    ga('create', 'UA-43403124-1', 'jotavejv.github.io');
+    ga('send', 'pageview');
     </script>
 </body>
 
