@@ -233,7 +233,7 @@ a{
 
 .icons {
     position: absolute;
-    top: 210px;
+    top: 162px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -254,7 +254,7 @@ a{
     font-size: 22px;
     transition: all .2s linear;
     transform: translateX(0);
-    animation: icons .5s .3.5s ease forwards
+    animation: icons .2s 3.5s ease forwards
 }
 
 .icon:nth-child(1) {
