@@ -52,8 +52,8 @@ a{
     background: rgba(0, 0, 0, .4) url(http://s.cdpn.io/16670/jv-codepen.png) 0 180px no-repeat;
     border-radius: 50%;
     overflow: hidden;
-    -webkit-animation: avatar 1s 2s ease-in-out forwards, avatar2 1s 4s steps(1, start);
-    animation: avatar 1s 2s ease-in-out forwards, avatar2 1s 4s steps(1, start)
+    -webkit-animation: avatar .5s 2s ease-in-out forwards, avatar2 1s 4s steps(1, start);
+    animation: avatar .5s 2s ease-in-out forwards, avatar2 1s 4s steps(1, start)
 }
 
 .item {
