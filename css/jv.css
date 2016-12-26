@@ -29,8 +29,8 @@ a{
     border-right-color: lightskyblue;
     white-space: nowrap;
     overflow: hidden;
-    -webkit-animation: slogan 1s 4.5s steps(15, start) forwards, slogan2 .5s linear alternate infinite;
-    animation: slogan 1s 4.5s steps(15, start) forwards, slogan2 .5s linear alternate infinite
+    -webkit-animation: slogan 2s 4.5s steps(35, start) forwards, slogan2 .35s linear alternate infinite;
+    animation: slogan 2s 4.5s steps(35, start) forwards, slogan2 .35s linear alternate infinite
 }
 
 .avatar {
