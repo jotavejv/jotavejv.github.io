@@ -1,0 +1,147 @@
+body {
+    background: lightseagreen;
+    color: white;
+}
+
+.loading {
+    width: 2em;
+    height: 2em;
+    background: tomato;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 999;
+    box-shadow: 2em 0 0 -.4em gold, -2em 0 0 -.4em #3498db;
+    animation: anim2 1s 1s cubic-bezier(0, 1.72, 1, .69) alternate infinite;
+}
+
+.loading.hide {
+    display: none;
+}
+
+@keyframes anim2 {
+    from {
+        box-shadow: 2em 0 0 -.4em gold, -2em 0 0 -.4em #3498db;
+    }
+    25% {
+        box-shadow: 2em 0 0 -.4em gold, -2em 0 0 -.4em #3498db;
+    }
+    50% {
+        box-shadow: 0em 0 0 -.4em gold, 0em 0 0 -.4em #3498db, 0 0em 0 -.4em cyan, 0 0em 0 -.4em #2ecc71;
+    }
+    to {
+        box-shadow: -2em 0 0 -.4em gold, 2em 0 0 -.4em #3498db, 0 -2em 0 -.4em cyan, 0 2em 0 -.4em #2ecc71;
+    }
+}
+
+h1 {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+#map {
+    width: 100%;
+    height: calc(100vh - 154px);
+    ;
+    top: 0;
+    bottom: 0;
+}
+
+.site-header {
+    border-bottom: 5px solid lightseagreen;
+    padding: 12px;
+    background: #24736f;
+}
+
+.main-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.main-nav-item {
+    display: inline-block;
+    font-size: 1em;
+    border-bottom: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 50%;
+    padding: 2px 10px;
+}
+
+.main-nav-item:hover {
+    background: lightseagreen;
+    cursor: pointer;
+}
+
+.info-content {
+    color: black;
+    margin-top: 45px;
+}
+
+.info-content img {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    min-height: 125px;
+}
+
+.info-content p {
+    margin-top: 1.5em;
+    font-size: 12px;
+}
+
+.gm-style-iw h3 {
+    color: #fff;
+    background: lightseagreen;
+    padding: 10px;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.gm-style-iw+div {
+    right: -4px !important;
+    top: -6px !important;
+    transform: scale(1.5);
+    border: 5px solid rgb(255, 255, 255);
+    box-sizing: content-box;
+    border-radius: 50%;
+}
+
+.ig {
+    border-top: 10px solid #98b3db;
+    padding: 1em;
+    background: #efefef;
+    min-height: 200px;
+    color: black;
+}
+
+.ig-div {
+    display: inline-block;
+    width: 20%;
+}
+
+.ig-div img {
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .main-nav-item {
+        width: auto;
+    }
+    header {
+        text-align: center;
+    }
+    h1 {
+        margin-bottom: 5px;
+    }
+}
