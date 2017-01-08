@@ -1,6 +1,7 @@
 body {
     background: lightseagreen;
     color: white;
+    overflow: hidden;
 }
 
 .loading {
@@ -45,7 +46,7 @@ h1 {
 
 #map {
     width: 100%;
-    height: calc(100vh - 154px);
+    height: calc(100vh - 30px);
     ;
     top: 0;
     bottom: 0;
@@ -144,4 +145,33 @@ h1 {
     h1 {
         margin-bottom: 5px;
     }
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: lightseagreen;
+    padding: 10px;
+    transition: all .35s ease;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100px);
+    text-align: center;
+}
+footer.showing {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+footer ul {
+    padding: 0;
+    margin: 0;
+    color: #f5f5f5;
+    list-style: none;
+}
+footer li {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 12px;
 }

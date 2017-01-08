@@ -12,7 +12,7 @@
 
 <body>
     <div class="loading"></div>
-    <div class="container-fluid">
+    <main class="container-fluid">
         <div class="row">
             <section class="section-nav col-sm-12">
                 <div class="row site-header">
@@ -22,15 +22,17 @@
                             <form>
                                 <div class="form-group">
                                     <label for="searchbar">Filter places by name</label>
-                                    <input type="text" id="searchbar" name="searchbar" class="form-control" data-bind="value: search, valueUpdate: 'afterkeydown'">
+                                    <input type="text" id="searchbar" name="searchbar" class="form-control" data-bind="textInput: search">
                                 </div>
                             </form>
                         </header>
                     </div>
                     <div class="col-sm-6 col-sm-pull-6">
-                        <ul data-bind="foreach: filteredItems" class="main-nav">
-                            <li data-bind="text: $data.name, click: $parent.setPlace" class="main-nav-item col-md-12 col-sm-6"></li>
-                        </ul>
+                        <nav>
+                            <ul data-bind="foreach: filteredItems" class="main-nav">
+                                <li data-bind="text: $data.name, click: $parent.setPlace" class="main-nav-item col-md-12 col-sm-6"></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </section>
@@ -40,9 +42,20 @@
                 </div>
             </section>
         </div>
-    </div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuWYuhbNXh3fnP011KBH6lbt2VwTRDBOM&callback=init" "></script>
+        <footer>
+            <ul>
+                <li class="categoria"><b>Categoria:</b> <span></span></li>
+                <li class="localizacao"><b>Localização:</b> <span></span></li>
+                <li class="checkin"><b>Total de check in:</b> <span></span></li>
+            </ul>
+        </footer>
+    </main>
     <script src="js/knockout-3.4.1.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
     <script src="js/app.js "></script>
+    <script async defer onerror="mapError()" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuWYuhbNXh3fnP011KBH6lbt2VwTRDBOM&callback=init"></script>
     </body>
 </html>
