@@ -18,10 +18,10 @@
                 <div class="row site-header">
                     <div class="col-sm-6 col-sm-push-6">
                         <header>
-                            <h1>Where can I find beers in Pelotas?</h1>
+                            <h1>Cervejas em Pelotas</h1>
                             <form>
                                 <div class="form-group">
-                                    <label for="searchbar">Filter places by name</label>
+                                    <label for="searchbar">Filtrar por nome</label>
                                     <input type="text" id="searchbar" name="searchbar" class="form-control" data-bind="textInput: search">
                                 </div>
                             </form>
@@ -42,11 +42,11 @@
                 </div>
             </section>
         </div>
-        <footer>
+        <footer data-bind="css: { 'showing': showing }">
             <ul>
-                <li class="categoria"><b>Categoria:</b> <span></span></li>
-                <li class="localizacao"><b>Localização:</b> <span></span></li>
-                <li class="checkin"><b>Total de check in:</b> <span></span></li>
+                <li class="categoria"><b>Categoria:</b> <span data-bind="text: categorie"></span></li>
+                <li class="localizacao"><b>Localização:</b> <span data-bind="text: address"></span></li>
+                <li class="checkin"><b>Total de check in:</b> <span data-bind="text: checkin"></span></li>
             </ul>
         </footer>
     </main>

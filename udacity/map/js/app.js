@@ -145,12 +145,24 @@ function init() {
         this.description = data.description;
     };
 
+    // flag first marker render/create
+    var flagInitialRender = false;
+
     // Initialize ViewModel Knockout
     var ViewModel = function() {
         var that = this;
 
+        // footer visibility
+        this.showing = ko.observable(false);
+
+        // footer foursquare info bind
+        this.categorie = ko.observable();
+        this.address = ko.observable();
+        this.checkin = ko.observable();
+
         // Set location list observable array from places
         this.placeList = ko.observableArray([]);
+
         // Get value from search field.
         this.search = ko.observable('');
 
@@ -171,6 +183,7 @@ function init() {
 
             // Find target of the clicked location and store for use in activation of marker.
             var target = that.filteredItems().indexOf(clickedPlace);
+            //that.markers[target].setAnimation(google.maps.Animation.BOUNCE);
 
             // Prepare content for Google Maps infowindow
             that.updateContent(clickedPlace);
@@ -262,30 +275,41 @@ function init() {
 
         // Create new marker for each place in array and push to markers array
         for (var i = 0, len = placeToShow.length; i < len; i++) {
-            var location = {
-                lat: placeToShow[i].lat,
-                lng: placeToShow[i].lng
-            };
-            var marker = new google.maps.Marker({
-                position: location,
-                map: this.map,
-                icon: settings.iconMapDefault,
-                animation: google.maps.Animation.DROP
-            });
 
-            this.markers.push(marker);
+            if (flagInitialRender) {
+                this.markers[i].setVisible(true);
+                this.markers[i].setAnimation(google.maps.Animation.DROP);
+            } else {
+                var location = {
+                    lat: placeToShow[i].lat,
+                    lng: placeToShow[i].lng
+                };
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: this.map,
+                    icon: settings.iconMapDefault,
+                    animation: google.maps.Animation.DROP
+                });
 
-            //render in the map
-            this.markers[i].setMap(this.map);
+                this.markers.push(marker);
 
-            // add event listener for click event to the newly created marker
-            marker.addListener('click', this.activateMarker(marker, context, infowindow, i));
+                //render in the map
+                this.markers[i].setMap(this.map);
+
+                // add event listener for click event to the newly created marker
+                marker.addListener('click', this.activateMarker(marker, context, infowindow, i));
+            }
+
+        }
+
+        if (!flagInitialRender) {
+            flagInitialRender = true;
         }
     };
 
     // Set all marker icons back to default icons.
     ViewModel.prototype.deactivateAllMarkers = function() {
-        $('footer').removeClass('showing');
+        this.showing(false);
         var markers = this.markers;
         for (var i = 0; i < markers.length; i++) {
             markers[i].setIcon(settings.iconMapDefault);
@@ -294,8 +318,9 @@ function init() {
         }
     };
 
-    // Method for foursquare API to render ratings
+    // Method for foursquare API
     ViewModel.prototype.foursquareReq = function(idx) {
+        var self = this;
         var ll = {
             lat: this.placeList()[idx].lat,
             lng: this.placeList()[idx].lng
@@ -309,10 +334,23 @@ function init() {
             url: 'https://api.foursquare.com/v2/venues/search?oauth_token=HC11S4GT3NOVSBXWIDJRBT45SCT4OBB2OELPSRGETDQHWRHH&v=20170108&ll=' + ll.lat + ',' + ll.lng
         }).done(function(data) {
             var info = data.response.venues[0];
-            $('footer').toggleClass('showing');
-            $('footer').find('.categoria span').text(info.categories[0].name);
-            $('footer').find('.localizacao span').text(info.location.address);
-            $('footer').find('.checkin span').text(info.stats.checkinsCount);
+            var categorie, checkin, address;
+
+            // provide fallback info
+            !!info.categories[0].name ? categorie = info.categories[0].name : categorie = 'Categoria não disponível';
+            !!info.stats.checkinsCount ? checkin = info.stats.checkinsCount : checkin = 'Informação não disponível';
+            !!info.location.address ? address = info.location.address : address = ' Endereço não disponível';
+
+            // show footer
+            self.showing(true);
+
+            // bind html
+            self.categorie(categorie);
+            self.address(address);
+            self.checkin(checkin);
+
+        }).fail(function() {
+            alert("Application can't retrieve foursquare data");
         });
     }
 
@@ -331,11 +369,9 @@ function init() {
 
             // deactivate all markers
             context.deactivateAllMarkers();
-            if (marker.getAnimation() !== null) {
-                marker.setAnimation(null);
-            } else {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-            }
+
+            //set animation
+            marker.setAnimation(google.maps.Animation.BOUNCE);
 
             // Open targeted infowindow and change its icon.
             infowindow.open(context.map, marker);
