@@ -237,10 +237,6 @@ function init() {
 
             // Render current filtered marker
             that.renderMarkers(that.filteredItems());
-
-            // Center map based in fisrt places array
-            var latlng = new google.maps.LatLng(that.filteredItems()[0].lat, that.filteredItems()[0].lng);
-            that.map.panTo(latlng);
         });
 
         // Add event listener for map click event (when user click on other areas of the map beside of markers)
@@ -272,18 +268,24 @@ function init() {
         var infowindow = this.infowindow;
         var context = this;
         var placeToShow = arrayInput;
+        var bounds = new google.maps.LatLngBounds();
+        var boundPlace;
 
         // Create new marker for each place in array and push to markers array
         for (var i = 0, len = placeToShow.length; i < len; i++) {
 
+            var location = {
+                lat: placeToShow[i].lat,
+                lng: placeToShow[i].lng
+            };
+
             if (flagInitialRender) {
                 this.markers[i].setVisible(true);
                 this.markers[i].setAnimation(google.maps.Animation.DROP);
+
+                //center map
+                this.map.panTo(this.markers[i].getPosition());
             } else {
-                var location = {
-                    lat: placeToShow[i].lat,
-                    lng: placeToShow[i].lng
-                };
                 var marker = new google.maps.Marker({
                     position: location,
                     map: this.map,
@@ -292,6 +294,12 @@ function init() {
                 });
 
                 this.markers.push(marker);
+
+                // fit markers in viewport
+                boundPlace = new google.maps.LatLng(location.lat, location.lng);
+                bounds.extend(boundPlace);
+                this.map.fitBounds(bounds);
+                this.map.panToBounds(bounds);
 
                 //render in the map
                 this.markers[i].setMap(this.map);
