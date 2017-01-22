@@ -6,51 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content=" Freelancer, CSS3, Front-End, Animations, UI Developer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/jv.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/dataurl.css"> -->
     <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css">
     <script src="javascripts/min/main.min.js"></script>
     <title>João Victor JV | Front-End | CSS3 | Animations | UI Developer | jotavejv</title>
-    <style>
-
-    body.primary {
-        background-color: #000;
-        background-image: -webkit-radial-gradient(center center, circle cover, rgba(255, 255, 255, .2), transparent 50%);
-        -webkit-background-size: 5px 5px;
-        background-size: 5px 5px;
-    }
-
-    body.primary .slogan{
-        color: rgba(255, 255, 255, .8);
-    }
-
-    body.primary .icon{
-        color: gray;
-    }
-    
-    body.second {
-        background: #f7f7f7;
-    }
-
-    body.second .slogan{
-        color: gray;
-        text-shadow:  none;
-    }
-
-    body.second .icon{
-        color: lightseagreen;
-    } 
-
-    body.second .avatar{
-        background-color: rgba(0,0,0,0.65);
-        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.38), 0 0 0 8px lightgray;
-    }
-
-    body.second .site-link{
-        color: gray;
-    }
-
-    </style>
 </head>
 
 <body>
@@ -105,11 +65,26 @@
         let body = document.body,
             ul = document.querySelector('.icons'),
             slogan = document.querySelector('.slogan');
-        theme = function() {
-            return Math.round(Math.random());
-        }();
+
+        function getRandomInt(min, max) {
+          return Math.round(Math.random() * (max - min) + min);
+        }
+        theme = getRandomInt(1, 3);
         console.log(theme);
-        theme === 0 ? body.classList.add('primary') : body.classList.add('second');
+
+        switch(theme){
+            case 1: 
+              body.classList.add('dark');
+              break;
+            case 2: 
+              body.classList.add('gradient');
+              break;
+            case 3:
+              body.classList.add('clean');
+              break;
+            default: 
+              break;
+        }
 
         let model = {
             "icons": [{
