@@ -1,9 +1,9 @@
 {
-  "name": "Relax time app",
-  "short_name": "Relax time app",
+  "name": "Take a time to relax",
+  "short_name": "Relax Time App",
   "description": "Take a time to relax",
   "orientation": "portrait",
-  "start_url": "/",
+  "start_url": "/relax-app",
   "display": "standalone",
   "background_color": "#ecf0f1",
   "theme_color": "#3498db",
