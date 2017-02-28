@@ -1,1 +1,3 @@
-Push.create("Hello")
+setInterval(function(){ 
+	Push.create("Hello")
+ }, 3000);
