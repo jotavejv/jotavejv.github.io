@@ -16,8 +16,8 @@
 <body>
     <div id="wrapper" hidden>
         <p class="slogan"></p>
-        <ul class="avatar">
-        </ul>
+        <div class="avatar"></div>
+        <div id="hover-avatar"></div>
         <ul class="icons"></ul>
         <div class="site-link">
             <p><a href="http://websolucoesjv.com/" target="_blank">websolucoesjv.com</a></p>
@@ -25,9 +25,15 @@
     </div>
     <script>
     function init() {
-        let body = document.body,
+        const body = document.body,
             ul = document.querySelector('.icons'),
-            slogan = document.querySelector('.slogan');
+            slogan = document.querySelector('.slogan'),
+            hoverAvatar = document.querySelector('#hover-avatar'),
+            avatar = document.querySelector('.avatar');
+
+            avatar.addEventListener("animationend", function(event) {
+              hoverAvatar.classList.add('animation-end');
+            }, false);
 
         function getRandomInt(min, max) {
           return Math.round(Math.random() * (max - min) + min);
@@ -49,7 +55,7 @@
               break;
         }
 
-        let model = {
+        const model = {
             "icons": [{
                 "name": "fa-codepen",
                 "url": "http://codepen.io/jotavejv/"
@@ -69,7 +75,7 @@
             "sentence": "I'm a CSS and animation lover"
         }
         model.icons.forEach((icon) => {
-            let listItem = document.createElement("li");
+            const listItem = document.createElement("li");
             listItem.classList.add("icon");
             listItem.innerHTML =
                 `<a href='${icon.url}' target="_blank">
