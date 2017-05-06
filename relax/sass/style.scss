@@ -21,12 +21,12 @@ body {
 .app {
   .title {
     text-align: center;
-    font-family: 'robotoregular';
+    font-family: 'robotothin';
     font-weight: 300;
     font-size: 16px;
     span {
       color: rgba(#3498db, .8);
-      font-weight: 400;
+      font-family: 'robotoregular';
     }
   }
 }
