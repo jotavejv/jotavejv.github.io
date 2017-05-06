@@ -15,7 +15,7 @@ body {
 
 .app .title {
   text-align: center;
-  font-family: 'Roboto';
+  font-family: 'robotoregular';
   font-weight: 300;
   font-size: 16px; }
   .app .title span {
@@ -56,7 +56,7 @@ body {
           opacity: 1;
           display: block;
           line-height: 0;
-          font-family: 'Roboto';
+          font-family: 'robotoregular';
           font-weight: 300;
           will-change: opacity; }
           .view .pulse.animate .label span.in {
@@ -72,7 +72,7 @@ body {
   text-align: center;
   margin: auto;
   color: rgba(52, 152, 219, 0.8);
-  font-family: 'Roboto';
+  font-family: 'robotoregular';
   font-weight: 300;
   font-size: 18px; }
   #counter.fadeout {
@@ -171,7 +171,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  font-family: 'Roboto', 'Noto', sans-serif;
+  font-family: 'robotoregular', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   width: 56px;
   height: 56px;
@@ -543,7 +543,7 @@ input:disabled + .switch__toggle {
 
 .checkbox--material {
   line-height: 18px;
-  font-family: 'Roboto', 'Noto', sans-serif;
+  font-family: 'robotoregular', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased; }
 
 .checkbox--material__checkmark {
@@ -872,7 +872,7 @@ input:disabled + .switch__toggle {
   align-self: flex-start; }
 
 .list--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+  font-family: 'robotoregular', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   border: 0; }
 
@@ -1154,7 +1154,7 @@ input:disabled + .switch__toggle {
   bottom: 0; }
 
 .roboto {
-  font-family: Roboto; }
+  font-family: 'robotoregular'; }
 
 .disable {
   pointer-events: none;
