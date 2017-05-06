@@ -14,7 +14,7 @@ let cacheFiles = [
     './relax/fonts/roboto-regular-webfont.woff2',
     './relax/fonts/roboto-thin-webfont.woff',
     './relax/fonts/roboto-thin-webfont.woff2',
-    './relax/app.js'/,
+    './relax/app.js',
     './relax/images/icon-72x72.png',
     './relax/images/icon-96x96.png',
     './relax/images/icon-128x128.png',
