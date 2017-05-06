@@ -1,8 +1,8 @@
 {
   "name": "Breath! App",
   "short_name": "Breath!",
-  "theme_color": "#26c6da",
-  "background_color": "#26c6da",
+  "theme_color": "#3498DB",
+  "background_color": "#ecf0f1",
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/relax/",

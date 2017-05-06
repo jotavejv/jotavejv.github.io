@@ -35,8 +35,9 @@ self.addEventListener('activate', function (event){
     // clean up old sw versions
 });
 
+// fetch pattern
 self.addEventListener('fetch', function(event) {
-    console.log(event.request);
+    //console.log(event.request);
     event.respondWith(
         caches.match(event.request).then(function(cachedResponse) {
             return cachedResponse || fetch(event.request);
