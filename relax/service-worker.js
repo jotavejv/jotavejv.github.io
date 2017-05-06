@@ -1,4 +1,4 @@
-let cacheName = 'v3';
+let cacheName = 'v4';
 let cacheFiles = [
     '/relax/',
     '/relax/index.html',
@@ -33,6 +33,15 @@ self.addEventListener('install', function (event){
 
 self.addEventListener('activate', function (event){
     // clean up old sw versions
+});
+
+self.addEventListener('fetch', function(event) {
+    console.log(event.request);
+    event.respondWith(
+        caches.match(event.request).then(function(cachedResponse) {
+            return cachedResponse || fetch(event.request);
+        })
+    );
 });
 
 // self.addEventListener('push', function (event){
