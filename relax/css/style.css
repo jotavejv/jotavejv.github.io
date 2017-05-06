@@ -138,13 +138,11 @@ body {
   margin: auto;
   width: 320px;
   z-index: 9;
-  transform: translateX(100%);
-  box-shadow: 0 0 0 4000px rgba(255, 255, 255, 0);
   transition: all .25s ease;
-  will-change: transform, box-shadow; }
+  will-change: transform, box-shadow;
+  box-shadow: 0 0 0 4000px transparent; }
   .menu.active {
-    transform: translateX(0);
-    box-shadow: 0 0 0 4000px rgba(0, 0, 0, 0.35); }
+    display: block; }
 
 .fab {
   position: relative;
@@ -1160,3 +1158,11 @@ input:disabled + .switch__toggle {
 .disable {
   pointer-events: none;
   opacity: .35; }
+
+@keyframes menu {
+  from {
+    transform: translateX(320px);
+    box-shadow: 0 0 0 4000px transparent; }
+  to {
+    transform: translateX(0px);
+    box-shadow: 0 0 0 4000px rgba(0, 0, 0, 0.3); } }
