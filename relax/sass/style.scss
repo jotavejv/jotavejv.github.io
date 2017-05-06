@@ -2,10 +2,26 @@ body {
   background: #ecf0f1;
 }
 
+@font-face {
+  font-family: 'robotoregular';
+  src: url('../fonts/roboto-regular-webfont.woff2') format('woff2'),
+  url('../fonts/roboto-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotothin';
+  src: url('../fonts/roboto-thin-webfont.woff2') format('woff2'),
+  url('../fonts/roboto-thin-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .app {
   .title {
     text-align: center;
-    font-family: 'Roboto';
+    font-family: 'robotoregular';
     font-weight: 300;
     font-size: 16px;
     span {
@@ -50,7 +66,7 @@ body {
           opacity: 1;
           display: block;
           line-height: 0;
-          font-family: 'Roboto';
+          font-family: 'robotoregular';
           font-weight: 300;
           will-change: opacity;
           &.in {
@@ -73,7 +89,7 @@ body {
   text-align: center;
   margin: auto;
   color: rgba(#3498db, .8);
-  font-family: 'Roboto';
+  font-family: 'robotoregular';
   font-weight: 300;
   font-size: 18px;
   &.fadeout{
@@ -192,7 +208,7 @@ body{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  font-family: 'Roboto', 'Noto', sans-serif;
+  font-family: 'robotoregular', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   width: 56px;
   height: 56px;
@@ -565,7 +581,7 @@ input:disabled + .switch__toggle {
 }
 .checkbox--material {
   line-height: 18px;
-  font-family: 'Roboto', 'Noto', sans-serif;
+  font-family: 'robotoregular', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 .checkbox--material__checkmark {
@@ -900,7 +916,7 @@ input:disabled + .switch__toggle {
   align-self: flex-start;
 }
 .list--material {
-  font-family: 'Roboto', 'Noto', sans-serif;
+  font-family: 'robotoregular', 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   border: 0;
 }
@@ -1191,7 +1207,7 @@ input:disabled + .switch__toggle {
 
 //utils
 .roboto{
-  font-family: Roboto;
+  font-family: 'robotoregular';
 }
 .disable{
   pointer-events: none;
