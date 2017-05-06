@@ -5,8 +5,8 @@
   "background_color": "#26c6da",
   "display": "standalone",
   "orientation": "portrait",
-  "Scope": "/relax",
-  "start_url": "/",
+  "Scope": "/relax/",
+  "start_url": "/relax/",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
