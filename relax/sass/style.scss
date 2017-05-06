@@ -175,8 +175,10 @@ body{
   transition: all .25s ease;
   will-change: transform, box-shadow;
   box-shadow: 0 0 0 4000px rgba(0,0,0, 0);
+  display: none;
   &.active{
     display: block;
+    animation: menu .25s ease both;
   }
 }
 
