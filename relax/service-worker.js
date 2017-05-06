@@ -1,15 +1,15 @@
 let cacheName = 'v1';
 let cacheFiles = [
-    './',
-    './index.html',
-    './css/style.css',
-    './app.js'/,
-    './images/icon-72x72.png',
-    './images/icon-96x96.png',
-    './images/icon-128x128.png',
-    './images/icon-192x192.png',
-    './images/icon-384x384.png',
-    './images/icon-512x512.png'
+    './relax/',
+    './relax/index.html',
+    './relax/css/style.css',
+    './relax/app.js'/,
+    './relax/images/icon-72x72.png',
+    './relax/images/icon-96x96.png',
+    './relax/images/icon-128x128.png',
+    './relax/images/icon-192x192.png',
+    './relax/images/icon-384x384.png',
+    './relax/images/icon-512x512.png'
 ]
 self.addEventListener('install', function (event){
     // cache files
