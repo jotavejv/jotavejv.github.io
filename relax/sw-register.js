@@ -1,6 +1,6 @@
 //sw register
 
-navigator.serviceWorker.register('./relax/service-worker.js', {
+navigator.serviceWorker.register('service-worker.js', {
     scope: '/'
 }).then(function (event){
 
