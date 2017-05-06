@@ -1,7 +1,7 @@
 //sw register
 
 navigator.serviceWorker.register('service-worker.js', {
-    scope: '/relax/'
+    scope: '/'
 }).then(function (event){
 
     if(event.installing) {
