@@ -6,33 +6,52 @@
     font-style: normal;
 }
 
+
 body {
   background: #ecf0f1;
   font-family: 'robotoregular';
   padding: 10px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 60px;
 }
 
-body{
-	max-width: 600px;
-	margin: 0 auto;
-}
 .app{
-	padding: 10px 0;
+	padding: 10px 10px;
+    background: #3498DB;
 	display: flex;
 	justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    //margin: 0 -20px;
+    div{
+        &:first-child{
+            flex-grow: 1;
+            display: flex;
+        }
+    }
 	select{
-		width: 200px;
+        width: 100%;
+		max-width: 200px;
 		padding: 5px;
-		font-size: 13px;
+		font-size: 12px;
+        border-radius: 3px;
+        border: solid 1px rgba(black, .35);
 	}
 	button{
 		padding: 4px 10px;
 		margin-right: 4px;
+        border-radius: 3px;
+        border: solid 1px rgba(black, .35);
+        background: #fff;
 	}
 }
 .content{
 	ul{
 		padding: 0;
+        margin: 0;
 	}
 	li{
 		padding: 4px 0;
