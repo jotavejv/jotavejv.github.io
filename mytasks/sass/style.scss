@@ -21,11 +21,6 @@ body {
     background: #3498DB;
 	display: flex;
 	justify-content: space-between;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    //margin: 0 -20px;
     div{
         &:first-child{
             flex-grow: 1;
@@ -47,6 +42,12 @@ body {
         border: solid 1px rgba(black, .35);
         background: #fff;
 	}
+    @media all and (max-width: 600px) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 }
 .content{
 	ul{

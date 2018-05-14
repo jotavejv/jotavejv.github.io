@@ -16,11 +16,7 @@ body {
   padding: 10px 10px;
   background: #3498DB;
   display: flex;
-  justify-content: space-between;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0; }
+  justify-content: space-between; }
   .app div:first-child {
     flex-grow: 1;
     display: flex; }
@@ -37,6 +33,12 @@ body {
     border-radius: 3px;
     border: solid 1px rgba(0, 0, 0, 0.35);
     background: #fff; }
+  @media all and (max-width: 600px) {
+    .app {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0; } }
 
 .content ul {
   padding: 0;
