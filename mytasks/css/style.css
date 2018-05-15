@@ -9,14 +9,16 @@ body {
   font-family: 'robotoregular';
   padding: 10px 20px;
   max-width: 600px;
-  margin: 0 auto;
-  margin-bottom: 60px; }
+  margin: 0 auto; }
+  @media all and (max-width: 600px) {
+    body {
+      margin-bottom: 60px; } }
 
 .app {
-  padding: 10px 10px;
-  background: #3498DB;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 20px; }
   .app div:first-child {
     flex-grow: 1;
     display: flex; }
@@ -35,10 +37,8 @@ body {
     background: #fff; }
   @media all and (max-width: 600px) {
     .app {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0; } }
+      background: #3498DB;
+      padding: 10px 10px; } }
 
 .content ul {
   padding: 0;
