@@ -5,7 +5,7 @@
   font-style: normal; }
 
 body {
-  background: #ecf0f1;
+  background: #f5f5f5;
   font-family: 'robotoregular';
   padding: 10px 20px;
   max-width: 600px;
@@ -38,7 +38,12 @@ body {
   @media all and (max-width: 600px) {
     .app {
       background: #3498DB;
-      padding: 10px 10px; } }
+      padding: 10px 10px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin-bottom: 0; } }
 
 .content ul {
   padding: 0;
@@ -51,8 +56,7 @@ body {
   align-items: center; }
   .content li span {
     font-size: 70%;
-    font-weight: bold;
-    color: #666; }
+    color: #444; }
     .content li span:not(:empty) {
       margin-left: 8px; }
 
@@ -62,7 +66,8 @@ body {
   border-radius: 10px;
   color: #fff;
   font-size: 70%;
-  margin-left: 10px; }
+  margin-left: 10px;
+  cursor: pointer; }
   .content small.red {
     background: #ff8a80; }
   .content small.yellow {

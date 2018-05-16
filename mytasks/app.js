@@ -17,6 +17,12 @@ function whichLabel(labelName){
 	//console.log(allLabels);
 	render(allLabels)
 }
+function bindLabelsClick(){
+	$('small').on('click', function(){
+		let name = $(this).text();
+		whichLabel(name);
+	});
+}
 function cards(boardID){
 	let api = `https://api.trello.com/1/boards/${boardID}/cards?key=${key}&token=${token}`;
 	return axios.get(api);
@@ -29,22 +35,6 @@ function lists(listID){
 	let api = `https://api.trello.com/1/lists/${listID}?fields=name&key=${key}&token=${token}`;
 	return axios.get(api);
 }
-// function lists(boardID){
-// 	let api = `https://api.trello.com/1/boards/${boardID}/lists?key=${key}&token=${token}`;
-// 	return axios.get(api);
-// }
-
-// axios.get(boardsAPI).then(function (res) {
-// 	console.log(res.data);
-// 	res.data.map(board => {
-// 		cards(board.id).then(res => {
-// 			boards.push(res.data);
-// 		})
-// 	});
-// }).catch(function (error) {
-//  console.log(error);
-// });
-//
 cards("5af78e6aa8d84903f0601b2c").then(res => {
 	let cards = res.data;
 	//console.log(cards);
@@ -59,7 +49,10 @@ cards("5af78e6aa8d84903f0601b2c").then(res => {
 			"due": card.due
 		})
 	})
-	render(cardsJSON);
+	let sortByDate = cardsJSON.sort(function(a,b){ // asc
+	  return new Date(a.due) - new Date(b.due);
+	});
+	render(sortByDate);
 })
 getLabels("5af78e6aa8d84903f0601b2c").then(res => {
 	res.data.map(item => {
@@ -71,45 +64,12 @@ getLabels("5af78e6aa8d84903f0601b2c").then(res => {
 	});
 })
 function render(data){
-	console.log(data);
+	//console.log(data);
 	$('.content ul').html('');
 	data.map(item => {
 		$('.content ul').append(`<li>${item.name} <span>${item.due ? formatDate(new Date(item.due)) : ''}</span> <small class="${item.color}">${item.label.join(',')}</small></li>`);
 	})
-}
-
-function prioridades(){
-	$('.content ul').html('');
-	boards.map(item => {
-		item.map(board => {
-			console.log(board)
-			if(board.idList == "5a974a07dbaf6d0a312320e8"){
-				$('.content ul').append(`<li>${board.name} ${board.due ? formatDate(new Date(board.due)) : ''}</li>`);
-			}
-		})
-	})
-}
-
-function datas(){
-	$('.content ul').html('');
-	boards.map(item => {
-		item.map(board => {
-			if(board.due){
-				$('.content ul').append(`<li>${board.name} : ${formatDate(new Date(board.due))}</li>`);
-			}
-		})
-	})
-}
-function prioridades(){
-	$('.content ul').html('');
-	boards.map(item => {
-		item.map(board => {
-			console.log(board)
-			if(board.idList == "5a974a07dbaf6d0a312320e8"){
-				$('.content ul').append(`<li>${board.name} ${board.due ? formatDate(new Date(board.due)) : ''}</li>`);
-			}
-		})
-	})
+	bindLabelsClick();
 }
 
 function formatDate(date) {
@@ -127,15 +87,6 @@ function formatDate(date) {
   return day + ' ' + monthNames[monthIndex];
 }
 
-function trigger(button, fn){
-	document.querySelector(button).addEventListener('click', function(){
-		fn();
-	});
-}
 $('button').on('click', function() {
 	whichList($(this).data('list'));
 });
-//
-// trigger('#habitos', habitos);
-// trigger('#datas', datas);
-// trigger('#facaprimeiro', prioridades);
