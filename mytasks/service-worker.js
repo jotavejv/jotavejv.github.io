@@ -144,7 +144,6 @@
      '/mytasks/',
      '/mytasks/index.html',
      '/mytasks/css/font-awesome.css',
-     '/mytasks/css/style.css',
      '/mytasks/fonts/FontAwesome.otf',
      '/mytasks/fonts/fontawesome-webfont.eot',
      '/mytasks/fonts/fontawesome-webfont.svg',
