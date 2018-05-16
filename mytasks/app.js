@@ -39,15 +39,17 @@ cards("5af78e6aa8d84903f0601b2c").then(res => {
 	let cards = res.data;
 	//console.log(cards);
 	cards.map(card => {
-		let labels = [];
-		card.labels.map(label =>labels.push(label.name));
-		cardsJSON.push({
-			"name": card.name,
-			"label": labels,
-			"idList": card.idList,
-			"color": card.labels[0].color,
-			"due": card.due
-		})
+		if(card.idList !== "5af78ea7b339d5de4d4eca92"){ // done list
+			let labels = [];
+			card.labels.map(label =>labels.push(label.name));
+			cardsJSON.push({
+				"name": card.name,
+				"label": labels,
+				"idList": card.idList,
+				"color": card.labels[0].color,
+				"due": card.due
+			})
+		}
 	})
 	let sortByDate = cardsJSON.sort(function(a,b){ // asc
 	  return new Date(a.due) - new Date(b.due);
@@ -64,7 +66,7 @@ getLabels("5af78e6aa8d84903f0601b2c").then(res => {
 	});
 })
 function render(data){
-	//console.log(data);
+	console.log(data);
 	$('.content ul').html('');
 	data.map(item => {
 		$('.content ul').append(`<li>${item.name} <span>${item.due ? formatDate(new Date(item.due)) : ''}</span> <small class="${item.color}">${item.label.join(',')}</small></li>`);

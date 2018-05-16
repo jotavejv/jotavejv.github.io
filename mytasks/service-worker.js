@@ -78,29 +78,6 @@
 // // //This is the service worker with the Cache-first network
 //
 // var CACHE = 'pwabuilder-precache2';
-var precacheFiles = [
-    '/mytasks/',
-    '/mytasks/index.html',
-    '/mytasks/css/font-awesome.css',
-    '/mytasks/css/style.css',
-    '/mytasks/fonts/FontAwesome.otf',
-    '/mytasks/fonts/fontawesome-webfont.eot',
-    '/mytasks/fonts/fontawesome-webfont.svg',
-    '/mytasks/fonts/fontawesome-webfont.ttf',
-    '/mytasks/fonts/fontawesome-webfont.woff',
-    '/mytasks/fonts/fontawesome-webfont.woff2',
-    '/mytasks/fonts/roboto-regular-webfont.woff',
-    '/mytasks/fonts/roboto-regular-webfont.woff2',
-    '/mytasks/fonts/roboto-thin-webfont.woff',
-    '/mytasks/fonts/roboto-thin-webfont.woff2',
-    '/mytasks/app.js',
-    '/mytasks/images/icons/icon-72x72.png',
-    '/mytasks/images/icons/icon-96x96.png',
-    '/mytasks/images/icons/icon-128x128.png',
-    '/mytasks/images/icons/icon-192x192.png',
-    '/mytasks/images/icons/icon-384x384.png',
-    '/mytasks/images/icons/icon-512x512.png'
-];
 //
 // //Install stage sets up the cache-array to configure pre-cache content
 // self.addEventListener('install', function(evt) {
@@ -163,7 +140,29 @@ var precacheFiles = [
 //
 //
  importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js');
-
+ var precacheFiles = [
+     '/mytasks/',
+     '/mytasks/index.html',
+     '/mytasks/css/font-awesome.css',
+     '/mytasks/css/style.css',
+     '/mytasks/fonts/FontAwesome.otf',
+     '/mytasks/fonts/fontawesome-webfont.eot',
+     '/mytasks/fonts/fontawesome-webfont.svg',
+     '/mytasks/fonts/fontawesome-webfont.ttf',
+     '/mytasks/fonts/fontawesome-webfont.woff',
+     '/mytasks/fonts/fontawesome-webfont.woff2',
+     '/mytasks/fonts/roboto-regular-webfont.woff',
+     '/mytasks/fonts/roboto-regular-webfont.woff2',
+     '/mytasks/fonts/roboto-thin-webfont.woff',
+     '/mytasks/fonts/roboto-thin-webfont.woff2',
+     '/mytasks/app.js',
+     '/mytasks/images/icons/icon-72x72.png',
+     '/mytasks/images/icons/icon-96x96.png',
+     '/mytasks/images/icons/icon-128x128.png',
+     '/mytasks/images/icons/icon-192x192.png',
+     '/mytasks/images/icons/icon-384x384.png',
+     '/mytasks/images/icons/icon-512x512.png'
+ ];
 if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
 } else {
@@ -186,22 +185,16 @@ workbox.routing.registerRoute(
     cacheName: 'css-cache',
   })
 );
+
 workbox.routing.registerRoute(
-  new RegExp('https://unpkg.com/axios/dist/axios.min.js'),
-  workbox.strategies.NetworkFirst({
-    fetchOptions: {
-      credentials: 'include',
-    },
-  })
+  'https://unpkg.com/axios/dist/axios.min.js',
+  workbox.strategies.cacheFirst(),
 );
 workbox.routing.registerRoute(
-  new RegExp('https://code.jquery.com/jquery-3.3.1.min.js'),
-  workbox.strategies.NetworkFirst({
-    fetchOptions: {
-      credentials: 'include',
-    },
-  })
+  'https://code.jquery.com/jquery-3.3.1.min.js',
+  workbox.strategies.cacheFirst(),
 );
+
 workbox.routing.registerRoute(
   // Cache image files
   /.*\.(?:png|jpg|jpeg|svg|gif)/,
