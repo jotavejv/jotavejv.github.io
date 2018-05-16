@@ -1,8 +1,8 @@
 {
   "name": "MyTasks! App",
   "short_name": "MyTasks!",
-  "theme_color": "#3498DB",
-  "background_color": "#ecf0f1",
+  "theme_color": "#80deea",
+  "background_color": "#039be5",
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/mytasks/",
