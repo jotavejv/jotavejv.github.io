@@ -24,6 +24,7 @@ body {
 }
 
 .app {
+    z-index: 9;
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
@@ -77,6 +78,23 @@ body {
         align-items: center;
         white-space: nowrap;
         flex-wrap: wrap;
+        padding: 12px 0;
+        border-bottom: solid 1px #ccc;
+        position: relative;
+        .fa{
+            margin-left: auto;
+            color: #888;
+            cursor: pointer;
+        }
+        .menu{
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            opacity: 0;
+            cursor: pointer;
+        }
 
         span {
             font-size: 70%;
@@ -128,6 +146,11 @@ body {
 
         &.orange {
             background: #f57c00;
+        }
+
+        &.pink {
+            background: pink;
+            color: #444;
         }
     }
 }

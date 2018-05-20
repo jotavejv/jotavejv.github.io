@@ -22,6 +22,7 @@ body {
       margin-bottom: 60px; } }
 
 .app {
+  z-index: 9;
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
@@ -63,7 +64,22 @@ body {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  padding: 12px 0;
+  border-bottom: solid 1px #ccc;
+  position: relative; }
+  .content li .fa {
+    margin-left: auto;
+    color: #888;
+    cursor: pointer; }
+  .content li .menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    opacity: 0;
+    cursor: pointer; }
   .content li span {
     font-size: 70%;
     font-weight: bold;
@@ -96,3 +112,6 @@ body {
     background: #26a69a; }
   .content small.orange {
     background: #f57c00; }
+  .content small.pink {
+    background: pink;
+    color: #444; }
