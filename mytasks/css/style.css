@@ -21,6 +21,15 @@ body {
     body {
       margin-bottom: 60px; } }
 
+button {
+  padding: 6px 12px;
+  margin-right: 4px;
+  border-radius: 3px;
+  border: solid 1px rgba(0, 0, 0, 0.35); }
+
+.button.active {
+  background: khaki; }
+
 .app {
   z-index: 9;
   display: flex;
@@ -39,10 +48,6 @@ body {
     border: solid 1px rgba(0, 0, 0, 0.35);
     background: #fff; }
   .app button {
-    padding: 6px 12px;
-    margin-right: 4px;
-    border-radius: 3px;
-    border: solid 1px rgba(0, 0, 0, 0.35);
     background: #fff; }
   @media all and (max-width: 600px) {
     .app {
@@ -115,3 +120,34 @@ body {
   .content small.pink {
     background: pink;
     color: #444; }
+
+.create {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #fff;
+  padding: 10px;
+  z-index: 9;
+  justify-content: center;
+  flex-direction: column;
+  display: none; }
+  .create .close {
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #666;
+    cursor: pointer; }
+  .create.active {
+    display: flex; }
+  .create input, .create select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    color: #666; }
+  .create div {
+    padding: 10px 0; }
+  .create button {
+    float: right; }

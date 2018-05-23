@@ -7,6 +7,7 @@ let allLabels = [];
 let listItems = [];
 let cardsJSON = [];
 let boardNamePrinted;
+let labelsArray = [];
 const listTasks = "5af78e7ac91d7add92c8f78e";
 const listPriority = "5af78e97f3374a701d0cc2f9";
 const listWip = "5af78ea3ef160aa530af298a";
@@ -64,16 +65,47 @@ cards("5af78e6aa8d84903f0601b2c").then(res => {
 	  return new Date(a.due) - new Date(b.due);
 	});
 	render(sortByDate);
+
+	//create
+	$('.close').on('click', function(){
+		closeModal();
+	});
+	labelsArray.map(label => {
+		$('.labels').append(`<option value="${label.id}">${label.name}</option>`);
+	});
+	let labelID;
+	$('.labels').on('change', function () {
+		labelID = $(this).val();
+	});
+	$('.createTask').on('click', function(){
+		let name = $('.create input').val();
+		createTask(name, labelID).then(res => {
+			if(res.status == 200) {
+				location.reload();
+			}else{
+				alert("Boomm", res.status)
+			}
+		})
+	})
 })
 getLabels("5af78e6aa8d84903f0601b2c").then(res => {
 	res.data.map(item => {
+		labelsArray.push({
+			"name": item.name,
+			"id": item.id
+		});
 		$('#labels').append(`<option value="${item.name}">${item.name}</option>`);
 	});
 	$('#labels').on('change', function () {
 		let val = $(this).val();
 		whichLabel(val);
 	});
+	//console.log(labelsArray);
 })
+function createTask(name, label){
+	let api = `https://api.trello.com/1/cards/?name=${name}&idList=${listTasks}&idLabels=${label}&key=${key}&token=${token}`;
+	return axios.post(api);
+}
 function render(data){
 	//console.log(data);
 	$('.content ul').html('');
@@ -106,7 +138,12 @@ function render(data){
 	});
 	bindLabelsClick();
 }
-
+function openModal(){
+	$('.create').addClass('active');
+}
+function closeModal(){
+	$('.create').removeClass('active');
+}
 function formatDate(date) {
   var monthNames = [
     "January", "February", "March",
@@ -122,6 +159,11 @@ function formatDate(date) {
   return day + ' ' + monthNames[monthIndex];
 }
 
-$('button').on('click', function() {
+$('.button').on('click', function() {
+	$('.button').removeClass('active');
+	$(this).addClass('active');
 	whichList($(this).data('list'));
+});
+$('.createButton').on('click', function() {
+	openModal();
 });
