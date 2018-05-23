@@ -1,0 +1,469 @@
+/* =========
+VARIABLES
+========= */
+:root {
+  --offset-value: 30;
+  --btn-size: 30;
+
+  --green: #000;
+}
+
+
+/* =======
+WRAPPER
+======= */
+.wrapper {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  .content{
+    $size: 350px;
+    position: fixed;
+    right: 0;
+    width: $size;
+    height: ($size + 150px);
+    background: #fff;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    margin: auto;
+    padding: 0;
+    transition: width 1s ease-in-out;
+    overflow: hidden;
+    padding: 20px;
+    padding-top: 50px;
+    transform: translateX(0);
+    #content-close{
+      position: absolute;
+      right: 0;
+      top: 0;
+      text-align: right;
+      font-size: 18px;
+      padding: 10px;
+      cursor: pointer;
+    }
+    p{
+      font-size: 18px;
+      font-weight: normal;
+    }
+    h1{
+      margin-bottom: 35px;
+      position: relative;
+      &:after{
+        content:"";
+        position: absolute;
+        bottom: -3px;
+        left: 2px;
+        width: 40px;
+        border-bottom: 4px solid #000;
+      }
+    }
+  }
+}
+
+
+/* =====================
+NAVIGATION BACKGROUND
+===================== */
+#nav-bg {
+  transform-origin: center center;
+  transition: transform .3s;
+  transform: translate(var(--translate-x), var(--translate-y)) scale(var(--scale));
+  will-change: transform;
+  pointer-events: none;
+  background: #000;
+}
+
+
+/* ======
+BUTTON
+====== */
+.btn {
+  position: fixed;
+  height: calc(var(--btn-size)*1px);
+  width: calc(var(--btn-size)*1px);
+  bottom: calc((var(--offset-value))*1px);
+  left: calc(var(--offset-value)*1px);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  z-index: 100;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+#toggle-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--green);
+  transition: transform .3s;
+  p{
+    position: absolute;
+  }
+}
+
+#toggle-btn span {
+  position: relative;
+  width: 100%;
+  transform-origin: 0 0;
+  transform: scaleX(0);
+  animation: menu .25s cubic-bezier(.6,0,.3,1) both;
+  &:nth-child(1){
+    animation-delay: 5s;
+  }
+  &:nth-child(2){
+    animation-delay: 5.1s;
+  }
+  &:nth-child(3){
+    animation-delay: 5.2s;
+  }
+}
+
+#toggle-btn span {
+  margin-top: -4px;
+}
+#toggle-btn span + span {
+  margin-top: 8px;
+}
+
+#toggle-btn span:before,
+#toggle-btn span:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  background: currentColor;
+  opacity: .8;
+  height: 100%;
+  width: 50%;
+  height: 4px;
+  transition: .25s cubic-bezier(.6,0,.3,1);
+  transform-origin: center center;
+}
+
+#toggle-btn span:before {
+  left: 0;
+  //border-radius: 3px 0 0 3px;
+}
+
+#toggle-btn span:after {
+  right: 0;
+  //border-radius: 0 3px 3px 0;
+}
+
+#toggle-btn.shown span:nth-of-type(1):before {
+  transform: translate3d(3px, 3.5px, 0) rotate(45deg);
+}
+
+#toggle-btn.shown span:nth-of-type(1):after {
+  transform: translate3d(-3px, 3.5px, 0) rotate(-45deg);
+}
+
+#toggle-btn.shown span:nth-of-type(3):before {
+  transform: translate3d(3px, -3.5px, 0) rotate(-45deg);
+}
+
+#toggle-btn.shown span:nth-of-type(3):after {
+  transform: translate3d(-3px, -3.5px, 0) rotate(45deg);
+}
+
+#toggle-btn.shown span:nth-of-type(2):before,
+#toggle-btn.shown span:nth-of-type(2):after {
+  opacity: 0;
+}
+
+#toggle-btn.shown span:nth-of-type(2):before {
+  transform: translateX(-200%);
+}
+
+#toggle-btn.shown span:nth-of-type(2):after {
+  transform: translateX(200%);
+}
+
+#toggle-btn.shown:before {
+  transform: scale(.6);
+  transition: .2s;
+}
+
+#toggle-btn:before {
+  content: '';
+  transition: .2s .2s;
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.1);
+  border-radius: inherit;
+  filter: blur(5px);
+  z-index: -2;
+}
+#toggle-btn:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: #fafafa;
+  z-index: -1;
+}
+
+/* ==========
+NAVIGATION
+========== */
+nav {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: flex;
+  z-index: 200;
+  pointer-events: none;
+}
+
+nav ul {
+  margin: auto;
+  pointer-events: auto;
+  text-align: left;
+}
+
+nav li {
+  font-size: 30px;
+  color: #212121;
+  user-select: none;
+  transform: translate(-20px,20px) scale(.9);
+  transition: 0s;
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform;
+}
+
+nav li + li {
+  margin-top: 30px;
+}
+
+#toggle-btn.shown ~ .wrapper nav li {
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+  transition: .35s cubic-bezier(.4,2.08,.55,1);
+}
+
+#toggle-btn.shown ~ .wrapper nav li:nth-child(1) {
+  transition-delay: .15s;
+}
+#toggle-btn.shown ~ .wrapper nav li:nth-child(2) {
+  transition-delay: .125s;
+}
+#toggle-btn.shown ~ .wrapper nav li:nth-child(3) {
+  transition-delay: .1s;
+}
+
+/* ============
+LINK EFFECT
+============ */
+.link {
+  position: relative;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  color: #fff;
+}
+
+.link:before,
+.link:after {
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 25%;
+  background: #f2f2f2;
+  top: calc(50% + 2px);
+  transition: transform .3s cubic-bezier(.5,.5,0,1);
+}
+
+.link:before {
+  left: 0;
+  transform: translateX(calc(-100% - 10px)) scaleX(0);
+  transform-origin: left;
+}
+
+.link:after {
+  right: 0;
+  transform: translateX(calc(100% + 10px)) scaleX(0);
+  transform-origin: right;
+}
+
+.link:hover:before {
+  transform: translateX(calc(-100% - 10px)) scaleX(1);
+  transform-origin: right;
+}
+
+.link:hover:after {
+  transform: translateX(calc(100% + 10px)) scaleX(1);
+  transform-origin: left;
+}
+
+
+/* =======
+CONTENT
+======= */
+#content {
+  display: flex;
+  height: 100%;
+}
+
+#content h1 {
+  font-size: calc(4vmin + 1em);
+  text-align: center;
+  margin: auto;
+  color: #fff;
+  text-shadow: 0 6px 18px rgba(0,0,0,.1);
+}
+
+
+
+
+/* Usual suspects */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:visited,
+a:focus,
+a:active,
+a:link {
+  text-decoration: none;
+  outline: 0;
+}
+
+a {
+  color: currentColor;
+  transition: .2s ease-in-out;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+  height: auto;
+  width: 100%;
+}
+
+.small-fz{
+  font-size: 20px;
+}
+
+
+
+html, body, main{ height: 100%; }
+body{
+  overflow: hidden;
+}
+.container{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.body{
+	height: 450px;
+	width: 500px;
+	position: relative;
+	font-family: Limelight;
+	font-size: 40px;
+	transform: translateX(-60px);
+	.line{
+		border-left: 2.5px solid #000;
+		height: 0;
+		width: 0;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		margin: auto;
+		box-shadow: 0 0 0 8px #fff;
+		z-index: 1;
+		transform: rotate(25deg);
+		animation: line .5s .5s ease-in-out forwards;
+	}
+	.text-right, .text-left{
+		transform: rotate(25deg);
+		height: 300px;
+		width: 300px;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		margin: auto;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		padding-top: 20px;
+		p{
+			margin: 4px 0;
+		}
+	}
+	.text-right{
+		left: 265px;
+		p{
+			margin-left: -10px;
+			transform: translateX(-300px) translateY(150px) rotate(-25deg);
+			animation: entrance 1s ease-in-out forwards;
+			&:nth-child(1){
+				animation-delay: .8s;
+			}
+			&:nth-child(2){
+				animation-delay: 3s;
+        animation-duration: .5s;
+			}
+			&:nth-child(3){
+				animation-delay: 3.25s;
+        animation-duration: .5s;
+			}
+		}
+	}
+	.text-left{
+		left: -330px;
+		p{
+			text-align: right;
+			margin-top: -40px;
+			margin-right: -10px;
+			transform: translateX(300px) translateY(-150px) rotate(-25deg);
+			animation: entrance 1s ease-in-out forwards;
+			animation-delay: 1.5s;
+		}
+	}
+}
+
+@keyframes entrance{
+	to{
+		transform: translateX(0) rotate(-25deg);
+	}
+}
+@keyframes line{
+	to{
+		height: 300px;
+	}
+}
+@keyframes menu{
+	to{
+		transform: scaleX(1);
+	}
+}
