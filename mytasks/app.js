@@ -7,6 +7,11 @@ let allLabels = [];
 let listItems = [];
 let cardsJSON = [];
 let boardNamePrinted;
+let labelsArray = [];
+const listTasks = "5af78e7ac91d7add92c8f78e";
+const listPriority = "5af78e97f3374a701d0cc2f9";
+const listWip = "5af78ea3ef160aa530af298a";
+const listDone = "5af78ea7b339d5de4d4eca92";
 function whichList(listID){
 	listItems = cardsJSON.filter( item => item.idList == listID);
 	//console.log(listItems);
@@ -17,6 +22,12 @@ function whichLabel(labelName){
 	//console.log(allLabels);
 	render(allLabels)
 }
+function bindLabelsClick(){
+	$('small').on('click', function(){
+		let name = $(this).text();
+		whichLabel(name);
+	});
+}
 function cards(boardID){
 	let api = `https://api.trello.com/1/boards/${boardID}/cards?key=${key}&token=${token}`;
 	return axios.get(api);
@@ -25,93 +36,114 @@ function getLabels(boardID){
 	let api = `https://api.trello.com/1/boards/${boardID}/labels?key=${key}&token=${token}`;
 	return axios.get(api);
 }
+function moveTo(listID, cardID){
+	let api = `https://api.trello.com/1/cards/${cardID}/idList?value=${listID}&key=${key}&token=${token}`;
+	return axios.put(api);
+}
 function lists(listID){
 	let api = `https://api.trello.com/1/lists/${listID}?fields=name&key=${key}&token=${token}`;
 	return axios.get(api);
 }
-// function lists(boardID){
-// 	let api = `https://api.trello.com/1/boards/${boardID}/lists?key=${key}&token=${token}`;
-// 	return axios.get(api);
-// }
-
-// axios.get(boardsAPI).then(function (res) {
-// 	console.log(res.data);
-// 	res.data.map(board => {
-// 		cards(board.id).then(res => {
-// 			boards.push(res.data);
-// 		})
-// 	});
-// }).catch(function (error) {
-//  console.log(error);
-// });
-//
 cards("5af78e6aa8d84903f0601b2c").then(res => {
 	let cards = res.data;
 	//console.log(cards);
 	cards.map(card => {
-		let labels = [];
-		card.labels.map(label =>labels.push(label.name));
-		cardsJSON.push({
-			"name": card.name,
-			"label": labels,
-			"idList": card.idList,
-			"color": card.labels[0].color,
-			"due": card.due
+		if(card.idList !== "5af78ea7b339d5de4d4eca92"){ // done list
+			let labels = [];
+			card.labels.map(label =>labels.push(label.name));
+			cardsJSON.push({
+				"name": card.name,
+				"label": labels,
+				"idList": card.idList,
+				"color": card.labels[0].color,
+				"due": card.due,
+				"id": card.id
+			})
+		}
+	})
+	let sortByDate = cardsJSON.sort(function(a,b){ // asc
+	  return new Date(a.due) - new Date(b.due);
+	});
+	render(sortByDate);
+
+	//create
+	$('.close').on('click', function(){
+		closeModal();
+	});
+	labelsArray.map(label => {
+		$('.labels').append(`<option value="${label.id}">${label.name}</option>`);
+	});
+	let labelID;
+	$('.labels').on('change', function () {
+		labelID = $(this).val();
+	});
+	$('.createTask').on('click', function(){
+		let name = $('.create input').val();
+		createTask(name, labelID).then(res => {
+			if(res.status == 200) {
+				location.reload();
+			}else{
+				alert("Boomm", res.status)
+			}
 		})
 	})
-	render(cardsJSON);
 })
 getLabels("5af78e6aa8d84903f0601b2c").then(res => {
 	res.data.map(item => {
-		$('select').append(`<option value="${item.name}">${item.name}</option>`);
+		labelsArray.push({
+			"name": item.name,
+			"id": item.id
+		});
+		$('#labels').append(`<option value="${item.name}">${item.name}</option>`);
 	});
-	$('select').on('change', function () {
+	$('#labels').on('change', function () {
 		let val = $(this).val();
 		whichLabel(val);
 	});
+	//console.log(labelsArray);
 })
+function createTask(name, label){
+	let api = `https://api.trello.com/1/cards/?name=${name}&idList=${listTasks}&idLabels=${label}&key=${key}&token=${token}`;
+	return axios.post(api);
+}
 function render(data){
-	console.log(data);
+	//console.log(data);
 	$('.content ul').html('');
 	data.map(item => {
-		$('.content ul').append(`<li>${item.name} <span>${item.due ? formatDate(new Date(item.due)) : ''}</span> <small class="${item.color}">${item.label.join(',')}</small></li>`);
+		$('.content ul').append(`
+			<li data-id="${item.id}">${item.name}
+				<span>${item.due ? formatDate(new Date(item.due)) : ''}</span>
+				<small class="${item.color}">${item.label.join(',')}</small>
+				<i class="fa fa-ellipsis-h"></i>
+				<select class="menu">
+	    			<option value="" disabled selected>Mover para</option>
+	    			<option value="${listTasks}">Tasks</option>
+	    			<option value="${listPriority}">Priority</option>
+	    			<option value="${listWip}">WIP</option>
+	    			<option value="${listDone}">Done</option>
+	    		</select>
+			</li>
+			`);
 	})
-}
-
-function prioridades(){
-	$('.content ul').html('');
-	boards.map(item => {
-		item.map(board => {
-			console.log(board)
-			if(board.idList == "5a974a07dbaf6d0a312320e8"){
-				$('.content ul').append(`<li>${board.name} ${board.due ? formatDate(new Date(board.due)) : ''}</li>`);
+	$('.menu').on('change', function () {
+		let listID = $(this).val();
+		let cardID = $(this).closest('li').data('id');
+		moveTo(listID, cardID).then(res => {
+			if(res.status == 200) {
+				location.reload();
+			}else{
+				alert("Boomm", res.status)
 			}
-		})
-	})
+		});
+	});
+	bindLabelsClick();
 }
-
-function datas(){
-	$('.content ul').html('');
-	boards.map(item => {
-		item.map(board => {
-			if(board.due){
-				$('.content ul').append(`<li>${board.name} : ${formatDate(new Date(board.due))}</li>`);
-			}
-		})
-	})
+function openModal(){
+	$('.create').addClass('active');
 }
-function prioridades(){
-	$('.content ul').html('');
-	boards.map(item => {
-		item.map(board => {
-			console.log(board)
-			if(board.idList == "5a974a07dbaf6d0a312320e8"){
-				$('.content ul').append(`<li>${board.name} ${board.due ? formatDate(new Date(board.due)) : ''}</li>`);
-			}
-		})
-	})
+function closeModal(){
+	$('.create').removeClass('active');
 }
-
 function formatDate(date) {
   var monthNames = [
     "January", "February", "March",
@@ -127,15 +159,11 @@ function formatDate(date) {
   return day + ' ' + monthNames[monthIndex];
 }
 
-function trigger(button, fn){
-	document.querySelector(button).addEventListener('click', function(){
-		fn();
-	});
-}
-$('button').on('click', function() {
+$('.button').on('click', function() {
+	$('.button').removeClass('active');
+	$(this).addClass('active');
 	whichList($(this).data('list'));
 });
-//
-// trigger('#habitos', habitos);
-// trigger('#datas', datas);
-// trigger('#facaprimeiro', prioridades);
+$('.createButton').on('click', function() {
+	openModal();
+});
