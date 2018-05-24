@@ -56,3 +56,16 @@ calculateValues();
 //toggleBtn.onclick = toggleMenu;
 toggleBtn.addEventListener('click', toggleMenu, false);
 window.addEventListener("resize", resizeHandler, false);
+
+//jv
+let $$ = document.querySelectorAll.bind(document)
+let $ = document.querySelector.bind(document)
+Array.from($$('.link')).map(link => {
+    link.addEventListener('click', function(e){
+    e.preventDefault();
+    let page = e.target.textContent.toLowerCase();
+    $('.content').classList.add('active');
+    $('nav').classList.add('is-hidden');
+  });
+});
+
