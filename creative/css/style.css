@@ -4,7 +4,7 @@ VARIABLES
 :root {
   --offset-value: 30;
   --btn-size: 30;
-  --green: #000; }
+  --bg: #000; }
 
 /* =======
 WRAPPER
@@ -28,35 +28,46 @@ WRAPPER
     margin: auto;
     padding: 0;
     padding: 20px;
-    transition: all .25s ease-in-out;
     opacity: 0;
-    pointer-events: none; }
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
     .wrapper .content.active {
+      transition: all .25s ease-in-out;
       pointer-events: auto;
       opacity: 1;
       transition-delay: .25s; }
       .wrapper .content.active .content-body {
-        transition-delay: .25s;
-        transform: scale(1); }
+        transition-delay: .4s;
+        opacity: 1;
+        transform: translateY(0); }
     .wrapper .content .content-body {
       transition: all .25s ease-in-out;
-      transform: scale(0.25); }
+      transform: translateY(20px);
+      opacity: 0;
+      color: #444; }
+      .wrapper .content .content-body p {
+        margin-bottom: 10px; }
+        .wrapper .content .content-body p span {
+          background: #efefef;
+          padding: 0 4px; }
     .wrapper .content #about {
       display: flex;
-      height: 50%;
       justify-content: center;
       align-items: center;
       text-align: left; }
       .wrapper .content #about p {
-        max-width: 600px; }
-    .wrapper .content #content-close {
+        max-width: 700px; }
+    .wrapper .content .content-close {
       position: absolute;
       right: 0;
       top: 0;
       text-align: right;
       font-size: 18px;
       padding: 20px;
-      cursor: pointer; }
+      cursor: pointer;
+      z-index: 9; }
     .wrapper .content p {
       font-size: 18px;
       font-weight: normal;
@@ -109,7 +120,7 @@ BUTTON
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--green);
+  color: var(--bg);
   transition: transform .3s; }
   #toggle-btn p {
     position: absolute; }

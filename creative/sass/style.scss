@@ -5,7 +5,7 @@ VARIABLES
   --offset-value: 30;
   --btn-size: 30;
 
-  --green: #000;
+  --bg: #000;
 }
 
 
@@ -31,36 +31,48 @@ WRAPPER
     margin: auto;
     padding: 0;
     padding: 20px;
-    transition: all .25s ease-in-out;
     //transform: scale(.25);
     opacity: 0;
     pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &.active{
+      transition: all .25s ease-in-out;
       pointer-events: auto;
       //transform: scale(1);
       opacity: 1;
       transition-delay: .25s;
       .content-body{
-        transition-delay: .25s;
-        transform: scale(1);
+        transition-delay: .4s;
+        opacity: 1;
+        transform: translateY(0);
       }
     }
     .content-body{
       transition: all .25s ease-in-out;
-      transform: scale(.25);
-      //opacity: 0;
+      transform: translateY(20px);
+      opacity: 0;
+      color: #444;
+      p {
+          margin-bottom: 10px;
+          span{
+              background: #efefef;
+              //color: #fff;
+              padding: 0 4px;
+          }
+      }
     }
     #about{
       display: flex;
-      height: 50%;
       justify-content: center;
       align-items: center;
       text-align: left;
       p{
-        max-width: 600px;
+        max-width: 700px;
       }
     }
-    #content-close{
+    .content-close{
       position: absolute;
       right: 0;
       top: 0;
@@ -68,6 +80,7 @@ WRAPPER
       font-size: 18px;
       padding: 20px;
       cursor: pointer;
+      z-index: 9;
     }
     p{
       font-size: 18px;
@@ -132,7 +145,7 @@ BUTTON
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--green);
+  color: var(--bg);
   transition: transform .3s;
   p{
     position: absolute;

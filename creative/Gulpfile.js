@@ -12,8 +12,8 @@ gulp.task('sass', function () {
 });
 
 gulp.task('js', function () {
-    return gulp.src('./js/**/*.js')
-        .pipe(gulp.dest('./js'))
+    return gulp.src('./*.js')
+        .pipe(gulp.dest('./'))
         .pipe(browserSync.stream());
 });
 
@@ -24,7 +24,7 @@ gulp.task('server', ['sass'], function () {
     });
 
     gulp.watch('./sass/**/*.scss', ['sass']);
-    gulp.watch('./js/**/*.js', ['js']);
+    gulp.watch('./*.js', ['js']);
     gulp.watch("./*.html").on('change', browserSync.reload);
 });
 
