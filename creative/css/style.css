@@ -26,24 +26,16 @@ WRAPPER
     bottom: 0;
     z-index: 999;
     margin: auto;
-    padding: 0;
     padding: 20px;
     opacity: 0;
     pointer-events: none;
     display: flex;
     justify-content: center;
     align-items: center; }
-    .wrapper .content.active {
-      transition: all .25s ease-in-out;
-      pointer-events: auto;
-      opacity: 1;
-      transition-delay: .25s; }
-      .wrapper .content.active .content-body {
-        transition-delay: .4s;
-        opacity: 1;
-        transform: translateY(0); }
     .wrapper .content .content-body {
-      transition: all .25s ease-in-out;
+      display: none;
+      font-family: 'Open Sans', sans-serif;
+      transition: all 0.25s ease-in-out;
       transform: translateY(20px);
       opacity: 0;
       color: #444; }
@@ -51,14 +43,34 @@ WRAPPER
         margin-bottom: 10px; }
         .wrapper .content .content-body p span {
           background: #efefef;
-          padding: 0 4px; }
+          padding: 0 4px;
+          font-weight: bold; }
+    .wrapper .content.active {
+      transition: all 0.25s ease-in-out;
+      pointer-events: auto;
+      opacity: 1;
+      transition-delay: 0.25s; }
+      .wrapper .content.active .content-body.block {
+        display: block; }
+      .wrapper .content.active .content-body.active {
+        opacity: 1;
+        transform: translateY(0); }
     .wrapper .content #about {
-      display: flex;
       justify-content: center;
       align-items: center;
       text-align: left; }
       .wrapper .content #about p {
         max-width: 700px; }
+      .wrapper .content #about.active {
+        display: flex; }
+    .wrapper .content #labs {
+      justify-content: center;
+      align-items: center;
+      text-align: left; }
+      .wrapper .content #labs p {
+        max-width: 700px; }
+      .wrapper .content #labs.active {
+        display: flex; }
     .wrapper .content .content-close {
       position: absolute;
       right: 0;
@@ -83,7 +95,7 @@ WRAPPER
         width: 40px;
         border-bottom: 4px solid #000; }
   .wrapper nav {
-    transition: all .35s ease-in-out; }
+    transition: all 0.35s ease-in-out; }
     .wrapper nav.is-hidden {
       transform: scale(0.5);
       opacity: 0; }
@@ -93,7 +105,7 @@ NAVIGATION BACKGROUND
 ===================== */
 #nav-bg {
   transform-origin: center center;
-  transition: transform .3s;
+  transition: transform 0.3s;
   transform: translate(var(--translate-x), var(--translate-y)) scale(var(--scale));
   will-change: transform;
   pointer-events: none;
@@ -121,7 +133,7 @@ BUTTON
   justify-content: center;
   align-items: center;
   color: var(--bg);
-  transition: transform .3s; }
+  transition: transform 0.3s; }
   #toggle-btn p {
     position: absolute; }
 
@@ -144,13 +156,13 @@ BUTTON
 #toggle-btn span + span {
   margin-top: 8px; }
 
-#toggle-btn span:before,
-#toggle-btn span:after {
+#toggle-btn span:after,
+#toggle-btn span:before {
   content: '';
   position: absolute;
   top: 0;
   background: currentColor;
-  opacity: .8;
+  opacity: 0.8;
   height: 100%;
   width: 50%;
   height: 4px;
@@ -175,8 +187,8 @@ BUTTON
 #toggle-btn.shown span:nth-of-type(3):after {
   transform: translate3d(-3px, -3.5px, 0) rotate(45deg); }
 
-#toggle-btn.shown span:nth-of-type(2):before,
-#toggle-btn.shown span:nth-of-type(2):after {
+#toggle-btn.shown span:nth-of-type(2):after,
+#toggle-btn.shown span:nth-of-type(2):before {
   opacity: 0; }
 
 #toggle-btn.shown span:nth-of-type(2):before {
@@ -187,11 +199,11 @@ BUTTON
 
 #toggle-btn.shown:before {
   transform: scale(0.6);
-  transition: .2s; }
+  transition: 0.2s; }
 
 #toggle-btn:before {
   content: '';
-  transition: .2s .2s;
+  transition: 0.2s 0.2s;
   position: absolute;
   top: 3px;
   left: 0;
@@ -253,13 +265,13 @@ nav li + li {
   transition: 0.35s cubic-bezier(0.4, 2.08, 0.55, 1); }
 
 #toggle-btn.shown ~ .wrapper nav li:nth-child(1) {
-  transition-delay: .15s; }
+  transition-delay: 0.15s; }
 
 #toggle-btn.shown ~ .wrapper nav li:nth-child(2) {
-  transition-delay: .125s; }
+  transition-delay: 0.125s; }
 
 #toggle-btn.shown ~ .wrapper nav li:nth-child(3) {
-  transition-delay: .1s; }
+  transition-delay: 0.1s; }
 
 /* ============
 LINK EFFECT
@@ -270,8 +282,8 @@ LINK EFFECT
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   color: #fff; }
 
-.link:before,
-.link:after {
+.link:after,
+.link:before {
   position: absolute;
   content: '';
   height: 2px;
@@ -319,16 +331,16 @@ CONTENT
   padding: 0; }
 
 a,
-a:visited,
-a:focus,
 a:active,
-a:link {
+a:focus,
+a:link,
+a:visited {
   text-decoration: none;
   outline: 0; }
 
 a {
   color: currentColor;
-  transition: .2s ease-in-out; }
+  transition: 0.2s ease-in-out; }
 
 ul {
   padding: 0;
@@ -342,7 +354,9 @@ img {
 .small-fz {
   font-size: 20px; }
 
-html, body, main {
+body,
+html,
+main {
   height: 100%; }
 
 body {
@@ -374,8 +388,9 @@ body {
     box-shadow: 0 0 0 8px #fff;
     z-index: 1;
     transform: rotate(25deg);
-    animation: line .5s .5s ease-in-out forwards; }
-  .body .text-right, .body .text-left {
+    animation: line 0.5s 0.5s ease-in-out forwards; }
+  .body .text-left,
+  .body .text-right {
     transform: rotate(25deg);
     height: 300px;
     width: 300px;
@@ -389,7 +404,8 @@ body {
     justify-content: center;
     flex-direction: column;
     padding-top: 20px; }
-    .body .text-right p, .body .text-left p {
+    .body .text-left p,
+    .body .text-right p {
       margin: 4px 0; }
   .body .text-right {
     left: 265px; }
@@ -398,13 +414,13 @@ body {
       transform: translateX(-300px) translateY(150px) rotate(-25deg);
       animation: entrance 1s ease-in-out forwards; }
       .body .text-right p:nth-child(1) {
-        animation-delay: .8s; }
+        animation-delay: 0.8s; }
       .body .text-right p:nth-child(2) {
         animation-delay: 3s;
-        animation-duration: .5s; }
+        animation-duration: 0.5s; }
       .body .text-right p:nth-child(3) {
         animation-delay: 3.25s;
-        animation-duration: .5s; }
+        animation-duration: 0.5s; }
   .body .text-left {
     left: -330px; }
     .body .text-left p {
