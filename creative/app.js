@@ -78,6 +78,6 @@ function init(){
                 $(`#${page}`).classList.add('active');
             }, 500);
       });
-      $('.content-close').addEventListener('click', e => closeContent());
     });
+    $('.content-close').addEventListener('click', e => closeContent());
 }

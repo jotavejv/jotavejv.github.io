@@ -70,9 +70,35 @@ WRAPPER
       .wrapper .content #labs p {
         max-width: 700px; }
       .wrapper .content #labs.active {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: 350px auto; }
+        display: flex;
+        justify-content: center; }
+        .wrapper .content #labs.active .grid {
+          margin: 5px;
+          position: relative;
+          width: 200px;
+          height: 200px; }
+          .wrapper .content #labs.active .grid .box__shadow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: -8px;
+            left: -8px;
+            background: #444 repeating-linear-gradient(-45deg, transparent, transparent 1px, white 1px, white 12px); }
+          .wrapper .content #labs.active .grid .box-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            border: solid 4px #f1f1f1;
+            cursor: pointer; }
+          .wrapper .content #labs.active .grid .box-title {
+            font-size: 13px;
+            color: #444;
+            position: absolute;
+            bottom: -20px;
+            z-index: 1;
+            padding: 2px 4px;
+            background: #efefef; }
     .wrapper .content .content-close {
       position: absolute;
       right: 0;
