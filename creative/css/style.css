@@ -73,32 +73,47 @@ WRAPPER
         display: flex;
         justify-content: center; }
         .wrapper .content #labs.active .grid {
-          margin: 5px;
+          margin: 20px;
           position: relative;
           width: 200px;
-          height: 200px; }
+          height: 200px;
+          cursor: pointer; }
           .wrapper .content #labs.active .grid .box__shadow {
             position: absolute;
             width: 100%;
             height: 100%;
-            top: -8px;
-            left: -8px;
+            top: -5px;
+            left: -5px;
             background: #444 repeating-linear-gradient(-45deg, transparent, transparent 1px, white 1px, white 12px); }
           .wrapper .content #labs.active .grid .box-content {
             position: absolute;
             width: 100%;
             height: 100%;
             z-index: 1;
-            border: solid 4px #f1f1f1;
-            cursor: pointer; }
+            border: double 4px rgba(68, 68, 68, 0.15);
+            background: #fff; }
           .wrapper .content #labs.active .grid .box-title {
-            font-size: 13px;
+            transition: color .15s ease;
+            font-size: 12px;
             color: #444;
             position: absolute;
             bottom: -20px;
             z-index: 1;
-            padding: 2px 4px;
-            background: #efefef; }
+            padding: 2px 4px; }
+            .wrapper .content #labs.active .grid .box-title .fa {
+              font-size: .9em;
+              opacity: 0;
+              transition: opacity .15s ease; }
+          .wrapper .content #labs.active .grid:hover .box-title .fa {
+            opacity: 1; }
+          .wrapper .content #labs.active .grid:hover .box__shadow {
+            animation: hover-grid 4s linear infinite; }
+
+@keyframes hover-grid {
+  from {
+    background-position: 0 0; }
+  from {
+    background-position: 100px 0; } }
     .wrapper .content .content-close {
       position: absolute;
       right: 0;
