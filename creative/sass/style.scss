@@ -20,6 +20,7 @@ WRAPPER
     overflow: hidden;
 
     .content {
+        overflow: auto;
         position: fixed;
         right: 0;
         background: #fff;
@@ -89,64 +90,110 @@ WRAPPER
             justify-content: center;
             align-items: center;
             text-align: left;
-
-            p {
-                max-width: 700px;
-            }
+            //overflow: auto;
             &.active{
-                // display: grid;
-                // grid-template-columns: 2fr 1fr;
-                // grid-template-rows: 350px auto;
-                display: flex;
-                justify-content: center;
+                display: block;
+                .grid-container{
+                    margin-top: 400px;
+                    display: grid;
+                    width: 100%;
+                    height: auto;
+                    //grid-gap: 50px 40px;
+                    grid-template-columns: repeat(4, 220px);
+                    grid-template-rows: repeat(4, 220px);
+                }
                 .grid{
-                    margin: 20px;
-                    position: relative;
-                    width: 200px;
-                    height: 200px;
+                    font-family: Limelight;
+                    //margin: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     cursor: pointer;
-                    .box__shadow {
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        top: -5px;
-                        left: -5px;
-                        background: #444 repeating-linear-gradient(-45deg, transparent, transparent 1px, white 1px, white 12px);
-                    }
-                    .box-content{
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        z-index: 1;
-                        border: double 4px rgba(#444, .15);
-                        //box-shadow: 0 0 30px rgba(black, .2);
-                        background: #fff;
-                    }
-                    .box-title{
-                        transition: color .15s ease;
-                        font-size: 12px;
-                        color: #444;
-                        position: absolute;
-                        bottom: -20px;
-                        z-index: 1;
-                        padding: 2px 4px;
-                        //background: #efefef;
+                    //filter: grayscale(.5);
+                    //transition: filter 0.3s;
+                    .grid-content{
+                        position: relative;
+                        width: 200px;
+                        height: 200px;
                         .fa{
-                          font-size: .9em;
+                            //padding: 10px;
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            z-index: 1;
+                          font-size: 10px;
                           opacity: 0;
                           transition: opacity .15s ease;
+                          color: #b9b9b9;
                         }
                     }
+                    .box__shadow {
+                        position: absolute;
+                        width: 102%;
+                        height: 102%;
+                        top: -5%;
+                        left: -5%;
+                        background: #e3e3e3 repeating-linear-gradient(-45deg, transparent, transparent 1px, white 1px, white 12px);
+                        border-radius: 50%;                    }
+                    .box-content{
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            z-index: 1;
+                            border: solid 4px #e3e3e3;
+                            background: #fff;
+                            border-radius: 50%;
+                            overflow: hidden;
+                    }
+                    .box-title{
+                        font-size: 24px;
+                        color: #444;
+                        position: absolute;
+                        bottom: -22px;
+                        z-index: 1;
+                        padding: 5px 20px;
+                        text-shadow: 0px 2px 0 #e3e3e3;
+                        /* background: #ffffff; */
+                        /* border: solid 1px #000000; */
+                        padding-right: 0;
+                        line-height: 1;
+                    }
                     &:hover{
-                      .box-title{
-                        //color: #006fa5;                        
+                        //filter: grayscale(0);
                         .fa{
                           opacity: 1;
                         }
-                      }
                       .box__shadow{
                         animation: hover-grid 4s linear infinite;
                       }
+                    }
+                    &:nth-child(1){
+                        grid-column: 1;
+                        grid-row: 2;
+                    }
+                    &:nth-child(2){
+                        grid-column: 2;
+                        grid-row: 1;
+                    }
+                    &:nth-child(3){
+                        grid-column: 4;
+                        grid-row: 1;
+                    }
+                    &:nth-child(4){
+                        grid-column: 3;
+                        grid-row: 2;
+                    }
+                    &:nth-child(5){
+                        grid-column: 2;
+                        grid-row: 3;
+                    }
+                    &:nth-child(6){
+                        grid-column: 4;
+                        grid-row: 3;
+                    }
+                    &:nth-child(7){
+                        grid-column: 1;
+                        grid-row: 4;
                     }
                 }
             }
