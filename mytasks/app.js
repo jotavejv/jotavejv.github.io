@@ -155,13 +155,13 @@ function render(data){
 		}
 		let api = `https://api.trello.com/1/cards/${itemID}?name=${nameWithFlag}&key=${key}&token=${token}`;
 		$(this).toggleClass('highlight');
-		// axios.put(api).then(res => {
-		// 	if (res.status == 200) {
-		// 		location.reload();
-		// 	} else {
-		// 		alert("Boomm", res.status)
-		// 	}
-		// });
+		axios.put(api).then(res => {
+			if (res.status == 200) {
+				location.reload();
+			} else {
+				alert("Boomm", res.status)
+			}
+		});
 	})
 	bindLabelsClick();
 }
