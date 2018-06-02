@@ -50,14 +50,21 @@ cards("5af78e6aa8d84903f0601b2c").then(res => {
 	cards.map(card => {
 		if(card.idList !== "5af78ea7b339d5de4d4eca92"){ // done list
 			let labels = [];
+			let name = card.name;
+			let isHighlited = false;
+			if(card.name.indexOf('flag') !== -1){
+				name = card.name.replace('flag', '');
+				isHighlited = true;
+			}
 			card.labels.map(label =>labels.push(label.name));
 			cardsJSON.push({
-				"name": card.name,
+				"name": name,
 				"label": labels,
 				"idList": card.idList,
 				"color": card.labels[0].color,
 				"due": card.due,
-				"id": card.id
+				"id": card.id,
+				"isHighlited": isHighlited
 			})
 		}
 	})
@@ -111,8 +118,9 @@ function render(data){
 	$('.content ul').html('');
 	data.map(item => {
 		$('.content ul').append(`
-			<li data-id="${item.id}">${item.name}
-				<span>${item.due ? formatDate(new Date(item.due)) : ''}</span>
+			<li data-id="${item.id}" class="${item.isHighlited ? 'highlight' : ''}">
+				<span>${item.name}</span>
+				<b>${item.due ? formatDate(new Date(item.due)) : ''}</b>
 				<small class="${item.color}">${item.label.join(',')}</small>
 				<i class="fa fa-ellipsis-h"></i>
 				<select class="menu">
@@ -125,7 +133,8 @@ function render(data){
 			</li>
 			`);
 	})
-	$('.menu').on('change', function () {
+	$('.menu').on('change', function (e) {
+		e.stopPropagation();
 		let listID = $(this).val();
 		let cardID = $(this).closest('li').data('id');
 		moveTo(listID, cardID).then(res => {
@@ -136,6 +145,25 @@ function render(data){
 			}
 		});
 	});
+	$('li').on('click', function (e) {
+		e.stopPropagation();
+		let itemID = $(this).data('id');
+		let name = $(this).find('span').text();
+		if ($(this).hasClass('highlight')) {
+			nameWithFlag = name;
+		} else {
+			nameWithFlag = `${name} flag`;
+		}
+		let api = `https://api.trello.com/1/cards/${itemID}?name=${nameWithFlag}&key=${key}&token=${token}`;
+		$(this).toggleClass('highlight');
+		axios.put(api).then(res => {
+			if (res.status == 200) {
+				location.reload();
+			} else {
+				alert("Boomm", res.status)
+			}
+		});
+	})
 	bindLabelsClick();
 }
 function openModal(){

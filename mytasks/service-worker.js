@@ -181,7 +181,7 @@ workbox.routing.registerRoute(
   // Use cache but update in the background ASAP
   workbox.strategies.staleWhileRevalidate({
     // Use a custom cache name
-    cacheName: 'css-cache2',
+    cacheName: 'css-cache3',
   })
 );
 
