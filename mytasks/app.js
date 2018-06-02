@@ -133,8 +133,8 @@ function render(data){
 			</li>
 			`);
 	})
+	$('.menu').on('click', function (e) {e.stopPropagation()});
 	$('.menu').on('change', function (e) {
-		e.stopPropagation();
 		let listID = $(this).val();
 		let cardID = $(this).closest('li').data('id');
 		moveTo(listID, cardID).then(res => {
@@ -146,7 +146,6 @@ function render(data){
 		});
 	});
 	$('li').on('click', function (e) {
-		e.stopPropagation();
 		let itemID = $(this).data('id');
 		let name = $(this).find('span').text();
 		if ($(this).hasClass('highlight')) {
@@ -156,13 +155,13 @@ function render(data){
 		}
 		let api = `https://api.trello.com/1/cards/${itemID}?name=${nameWithFlag}&key=${key}&token=${token}`;
 		$(this).toggleClass('highlight');
-		axios.put(api).then(res => {
-			if (res.status == 200) {
-				location.reload();
-			} else {
-				alert("Boomm", res.status)
-			}
-		});
+		// axios.put(api).then(res => {
+		// 	if (res.status == 200) {
+		// 		location.reload();
+		// 	} else {
+		// 		alert("Boomm", res.status)
+		// 	}
+		// });
 	})
 	bindLabelsClick();
 }
