@@ -68,15 +68,25 @@ WRAPPER
       justify-content: center;
       align-items: center;
       text-align: left; }
+      .wrapper .content #labs .labs {
+        margin-bottom: 50px; }
+        .wrapper .content #labs .labs h1 {
+          margin-bottom: 10px; }
+        .wrapper .content #labs .labs p {
+          font-size: 13px;
+          line-height: 1.25; }
+          .wrapper .content #labs .labs p a {
+            color: #3b5fff; }
+            .wrapper .content #labs .labs p a .fa {
+              font-size: 9px; }
       .wrapper .content #labs.active {
         display: block; }
         .wrapper .content #labs.active .grid-container {
-          margin-top: 400px;
           display: grid;
           width: 100%;
           height: auto;
-          grid-template-columns: repeat(4, 200px);
-          grid-template-rows: repeat(4, 200px); }
+          grid-template-columns: repeat(4, 190px);
+          grid-template-rows: repeat(4, 185px); }
         .wrapper .content #labs.active .grid {
           display: flex;
           justify-content: center;
@@ -87,6 +97,8 @@ WRAPPER
             width: 150px;
             height: 150px; }
             .wrapper .content #labs.active .grid .grid-content .icons {
+              transition: opacity .25s linear;
+              opacity: 0;
               padding: 10px;
               z-index: 1;
               position: absolute;
@@ -102,6 +114,7 @@ WRAPPER
                 .wrapper .content #labs.active .grid .grid-content .icons div .fa {
                   margin: 0 2px; }
           .wrapper .content #labs.active .grid .box__shadow {
+            display: none;
             position: absolute;
             width: 102%;
             height: 102%;
@@ -115,21 +128,22 @@ WRAPPER
             z-index: 1;
             border: solid 4px #fff;
             background: #fff;
-            border-radius: 2px;
+            border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25); }
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            transition: all 0.25s linear; }
             .wrapper .content #labs.active .grid .box-content img {
-              transition: opacity 0.25s linear;
+              transition: all 0.25s linear;
+              opacity: 0.8;
               width: 142px;
               height: 142px;
               object-fit: cover; }
           .wrapper .content #labs.active .grid .box-title {
-            opacity: 0;
             width: 150px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            font-size: 12px;
+            font-size: 11px;
             color: #444;
             position: absolute;
             bottom: 0;
@@ -140,15 +154,18 @@ WRAPPER
             background: #fff;
             padding: 4px; }
           .wrapper .content #labs.active .grid:hover img {
-            opacity: 1; }
+            opacity: 1;
+            transform: scale(1.05); }
           .wrapper .content #labs.active .grid:hover .box-title {
             opacity: 1; }
-          .wrapper .content #labs.active .grid:hover .box__shadow {
-            animation: hover-grid 4s linear infinite; }
+          .wrapper .content #labs.active .grid:hover .box-content {
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.25); }
+          .wrapper .content #labs.active .grid:hover .icons {
+            opacity: 1; }
           .wrapper .content #labs.active .grid:nth-child(odd) {
-            margin-top: -40px; }
+            margin-top: -30px; }
           .wrapper .content #labs.active .grid:nth-child(even) {
-            margin-top: 40px; }
+            margin-top: 30px; }
 
 @keyframes hover-grid {
   from {
@@ -169,6 +186,7 @@ WRAPPER
       font-weight: normal;
       line-height: 1.5; }
     .wrapper .content h1 {
+      font-family: Limelight;
       margin-bottom: 35px;
       position: relative; }
       .wrapper .content h1:after {
@@ -177,7 +195,7 @@ WRAPPER
         bottom: -3px;
         left: 2px;
         width: 40px;
-        border-bottom: 4px solid #000; }
+        border-bottom: 4px solid #444; }
   .wrapper nav {
     transition: all 0.35s ease-in-out; }
     .wrapper nav.is-hidden {
