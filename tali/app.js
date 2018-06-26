@@ -14,7 +14,7 @@ const listWip = "5638e379a335523875e45cae";
 const listDone = "5638e37cca3f0975da4b4bf2";
 function whichList(listID){
 	listItems = cardsJSON.filter( item => item.idList == listID);
-	//console.log(listItems);
+	console.log(listItems);
 	render(listItems)
 }
 function whichLabel(labelName){
@@ -61,7 +61,6 @@ cards("5602d950ca4c6f4c761af78e").then(res => {
 				"name": name,
 				"label": labels,
 				"idList": card.idList,
-				"color": card.labels[0].color,
 				"due": card.due,
 				"id": card.id,
 				"isHighlited": isHighlited
@@ -95,7 +94,7 @@ cards("5602d950ca4c6f4c761af78e").then(res => {
 		})
 	})
 })
-getLabels("5af78e6aa8d84903f0601b2c").then(res => {
+getLabels("5602d950ca4c6f4c761af78e").then(res => {
 	res.data.map(item => {
 		labelsArray.push({
 			"name": item.name,
