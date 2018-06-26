@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#3498db">
+    <title>MyTasks!</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="app">
+    	<div>
+    		<button class="button" data-list="5af78e7ac91d7add92c8f78e">Tasks</button>
+    		<button class="button" data-list="5af78e97f3374a701d0cc2f9">Priority</button>
+    		<button class="button" data-list="5af78ea3ef160aa530af298a">WIP</button>
+    		<button class="createButton"><i class="fa fa-plus-circle"></i></button>
+    	</div>
+    	<div>
+    		<select id="labels">
+    			<option value="" disabled selected>Filtrar por label</option>
+    		</select>
+    	</div>
+    </div>
+
+
+    <div class="content">
+    	<ul></ul>
+    </div>
+
+    <div class="create">
+        <i class="close fa fa-times"></i>
+        <div>
+            <input type="text" placeholder="Nome">
+        </div>
+        <div>
+            <select class="labels">
+                <option value="" disabled selected>Label</option>
+            </select>
+        </div>
+        <div>
+            <button type="button" class="createTask">Criar</button>
+        </div>
+    </div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="sw-register.js"></script>
+<script src="app.js"></script>
+
+</body>
+
+</html>
