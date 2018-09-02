@@ -9,11 +9,8 @@ a:focus,
 a:link,
 a:visited {
   text-decoration: none;
-  outline: 0; }
-
-a {
-  color: currentColor;
-  transition: 0.2s ease-in-out; }
+  outline: 0;
+  color: currentColor; }
 
 ul {
   padding: 0;
@@ -22,7 +19,9 @@ ul {
 body,
 html,
 main {
-  height: 100%; }
+  height: 100%;
+  font-family: "Open Sans";
+  color: #444; }
 
 body {
   overflow: hidden; }
@@ -40,7 +39,7 @@ body {
     height: 290px;
     width: 500px;
     position: relative;
-    font-family: Limelight;
+    font-family: "Limelight";
     font-size: 40px;
     transform: translateX(-60px); }
     .home .body .line {
@@ -99,9 +98,9 @@ body {
         animation: entrance 1s ease-in-out forwards;
         animation-delay: 1.5s; }
   .home nav {
+    font-family: "Open Sans";
     opacity: 0;
     visibility: hidden;
-    font-family: "Open Sans";
     position: absolute;
     bottom: 0;
     right: 23px;
@@ -148,6 +147,7 @@ body {
     .wrapper .content.active {
       display: block; }
     .wrapper .content .grid-container {
+      margin-top: 50px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 20px; }
@@ -163,12 +163,11 @@ body {
     height: auto; }
 
 .card {
-  font-family: 'Open Sans';
   position: relative;
   background: #fff;
   border-radius: 4px;
   padding: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 240px;
   overflow: hidden;
@@ -195,7 +194,7 @@ body {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
       width: 100%;
       height: 100%;
-      transition: all .35s linear; }
+      transition: clip-path .25s ease,  opacity .35s .25s linear, transform .35s .25s linear; }
   .card__tags {
     position: absolute;
     bottom: 20px;
@@ -226,3 +225,18 @@ body {
     background: #CAE9FF; }
   .tag--css {
     background: #BAE9E3; }
+
+.heading {
+  font-family: "Limelight";
+  position: relative;
+  margin-bottom: 15px; }
+  .heading::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom: 4px solid currentColor;
+    width: 45px; }
+
+.page-description {
+  font-size: 16px; }
