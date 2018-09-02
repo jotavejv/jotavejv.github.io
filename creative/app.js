@@ -1,5 +1,7 @@
 function init() {
 
+    const $$ = document.querySelectorAll.bind(document);
+    const $ = document.querySelector.bind(document);
     const API = "https://api.npoint.io/ddccb0fb1986eed44828";
     const getApi = function (data) {
         return fetch(`${API}/${data}`)
@@ -7,27 +9,58 @@ function init() {
     };
 
     let page;
-    let $$ = document.querySelectorAll.bind(document);
-    let $ = document.querySelector.bind(document);
 
     function closeContent() {
+        $('.home').classList.remove('is-hidden');
         $('.content').classList.remove('active');
-        $('nav').classList.remove('is-hidden');
-        $(`#${page}`).classList.remove('active', 'block');
+        $(`#${page}`).classList.remove('active');
     }
+
+    // nav
     Array.from($$('.link')).map(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
+            $('.home').classList.add('is-hidden');
             page = e.target.textContent.toLowerCase();
             $('.content').classList.add('active');
             $('nav').classList.add('is-hidden');
-            $(`#${page}`).classList.add('block');
             setTimeout(function () {
                 $(`#${page}`).classList.add('active');
             }, 500);
         });
     });
+
+    // render
+    const render = function(target, content){
+        $(`${target} .grid-container`).innerHTML = content;
+    }
+
+    // content
     $('.content-close').addEventListener('click', e => closeContent());
 
-    getApi("labs").then(data => console.log(data[0]));
+    // components
+    const Card = function(data){
+        return `
+            <div class="card card--labs">
+                <h2 class="card__title">${data.title}</h2>
+                <p class="card__description">${data.description}</p>
+                ${data.tags.map(tag =>`
+                        <div class="tag">
+                            <span>${tag}</span>
+                        </div>`
+                    ).join('')
+                }
+                <div class="card__image">
+                    <img src="${data.image}">
+                </div>
+            </div>
+        `
+    }
+
+    // labs
+    getApi("labs").then(data => {        
+        data.map(item => {
+            render('#labs', Card(item));
+        });
+    });
 }

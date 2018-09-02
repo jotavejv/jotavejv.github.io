@@ -40,13 +40,18 @@ body {
  overflow: hidden;
 }
 
-.container {
+.home {
+  position: relative;
+  z-index: 9;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  &.is-hidden{
+    display: none;
+  }
   .body {
-    height: 296px;
+    height: 290px;
     width: 500px;
     position: relative;
     font-family: Limelight;
@@ -66,7 +71,7 @@ body {
       box-shadow: 0 0 0 8px #fff;
       z-index: 1;
       transform: rotate(25deg);
-      animation: line 0.5s 0.5s ease-in-out forwards;
+      animation: line 0.35s 0.8s ease-in-out forwards;
     }
 
     .text-left,
@@ -174,5 +179,34 @@ body {
     to {
       transform: scaleX(1);
     }
+  }
+}
+
+.wrapper{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  overflow-y: auto;
+  .content{
+    display: none;
+    &.active{
+      display: block;
+      #about{
+        
+      }
+    }
+  }
+}
+#about, #labs{
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  transition: opacity .5s ease-in-out;
+  &.active{
+     opacity: 1;
+     visibility: visible;
+     height: auto;
   }
 }

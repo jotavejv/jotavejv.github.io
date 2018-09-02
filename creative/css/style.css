@@ -27,19 +27,23 @@ main {
 body {
   overflow: hidden; }
 
-.container {
+.home {
+  position: relative;
+  z-index: 9;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center; }
-  .container .body {
-    height: 296px;
+  .home.is-hidden {
+    display: none; }
+  .home .body {
+    height: 290px;
     width: 500px;
     position: relative;
     font-family: Limelight;
     font-size: 40px;
     transform: translateX(-60px); }
-    .container .body .line {
+    .home .body .line {
       border-left: 2.5px solid #000;
       height: 0;
       width: 0;
@@ -52,9 +56,9 @@ body {
       box-shadow: 0 0 0 8px #fff;
       z-index: 1;
       transform: rotate(25deg);
-      animation: line 0.5s 0.5s ease-in-out forwards; }
-    .container .body .text-left,
-    .container .body .text-right {
+      animation: line 0.35s 0.8s ease-in-out forwards; }
+    .home .body .text-left,
+    .home .body .text-right {
       transform: rotate(25deg);
       height: 300px;
       width: 300px;
@@ -68,33 +72,33 @@ body {
       justify-content: center;
       flex-direction: column;
       padding-top: 20px; }
-      .container .body .text-left p,
-      .container .body .text-right p {
+      .home .body .text-left p,
+      .home .body .text-right p {
         margin: 4px 0; }
-    .container .body .text-right {
+    .home .body .text-right {
       left: 265px; }
-      .container .body .text-right p {
+      .home .body .text-right p {
         margin-left: -10px;
         transform: translateX(-300px) translateY(150px) rotate(-25deg);
         animation: entrance 1s ease-in-out forwards; }
-        .container .body .text-right p:nth-child(1) {
+        .home .body .text-right p:nth-child(1) {
           animation-delay: 0.8s; }
-        .container .body .text-right p:nth-child(2) {
+        .home .body .text-right p:nth-child(2) {
           animation-delay: 3s;
           animation-duration: 0.5s; }
-        .container .body .text-right p:nth-child(3) {
+        .home .body .text-right p:nth-child(3) {
           animation-delay: 3.25s;
           animation-duration: 0.5s; }
-    .container .body .text-left {
+    .home .body .text-left {
       left: -330px; }
-      .container .body .text-left p {
+      .home .body .text-left p {
         text-align: right;
         margin-top: -40px;
         margin-right: -10px;
         transform: translateX(300px) translateY(-150px) rotate(-25deg);
         animation: entrance 1s ease-in-out forwards;
         animation-delay: 1.5s; }
-  .container nav {
+  .home nav {
     opacity: 0;
     visibility: hidden;
     font-family: "Open Sans";
@@ -105,12 +109,12 @@ body {
     font-size: 14px;
     font-weight: bold;
     animation: nav .5s 4s ease-in-out forwards; }
-    .container nav ul {
+    .home nav ul {
       display: flex; }
-      .container nav ul li {
+      .home nav ul li {
         padding: 8px 10px;
         line-height: 1; }
-        .container nav ul li:hover {
+        .home nav ul li:hover {
           background: #f2f2f2; }
 
 @keyframes nav {
@@ -129,3 +133,25 @@ body {
 @keyframes menu {
   to {
     transform: scaleX(1); } }
+
+.wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  overflow-y: auto; }
+  .wrapper .content {
+    display: none; }
+    .wrapper .content.active {
+      display: block; }
+
+#about, #labs {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  transition: opacity .5s ease-in-out; }
+  #about.active, #labs.active {
+    opacity: 1;
+    visibility: visible;
+    height: auto; }
