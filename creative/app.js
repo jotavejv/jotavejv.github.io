@@ -43,16 +43,22 @@ function init() {
         return `
             ${data.map(card => `
                 <div class="card card--labs">
-                    <h2 class="card__title">${card.title}</h2>
+                    <h2 class="card__title">
+                        <a href="${card.url}">${card.title}</a>
+                    </h2>
                     <p class="card__description">${card.description}</p>
-                    ${card.tags.map(tag =>`
-                            <div class="tag">
-                                <span>${tag}</span>
-                            </div>`
-                        ).join('')
-                    }
+                    <div class="card__tags">
+                        ${card.tags.map(tag =>`
+                                <div class="tag tag--${tag.replace(' ', '-')}">
+                                    <span>${tag}</span>
+                                </div>`
+                            ).join('')
+                        }
+                    </div>
                     <div class="card__image">
+                    <a href="${card.url}">
                         <img src="${card.image}">
+                    </a>
                     </div>
                 </div>
             `).join('')}
