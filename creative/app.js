@@ -41,26 +41,26 @@ function init() {
     // components
     const Card = function(data){
         return `
-            <div class="card card--labs">
-                <h2 class="card__title">${data.title}</h2>
-                <p class="card__description">${data.description}</p>
-                ${data.tags.map(tag =>`
-                        <div class="tag">
-                            <span>${tag}</span>
-                        </div>`
-                    ).join('')
-                }
-                <div class="card__image">
-                    <img src="${data.image}">
+            ${data.map(card => `
+                <div class="card card--labs">
+                    <h2 class="card__title">${card.title}</h2>
+                    <p class="card__description">${card.description}</p>
+                    ${card.tags.map(tag =>`
+                            <div class="tag">
+                                <span>${tag}</span>
+                            </div>`
+                        ).join('')
+                    }
+                    <div class="card__image">
+                        <img src="${card.image}">
+                    </div>
                 </div>
-            </div>
+            `).join('')}
         `
     }
 
     // labs
     getApi("labs").then(data => {        
-        data.map(item => {
-            render('#labs', Card(item));
-        });
+        render('#labs', Card(data));
     });
 }
