@@ -12,23 +12,10 @@ function init() {
 
     function closeContent() {
         $('.home').classList.remove('is-hidden');
+        $('.content-close').classList.remove('active');
         $('.content').classList.remove('active');
         $(`#${page}`).classList.remove('active');
     }
-
-    // nav
-    Array.from($$('.link')).map(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            $('.home').classList.add('is-hidden');
-            page = e.target.textContent.toLowerCase();
-            $('.content').classList.add('active');
-            $('nav').classList.add('is-hidden');
-            setTimeout(function () {
-                $(`#${page}`).classList.add('active');
-            }, 500);
-        });
-    });
 
     // render
     const render = function(target, content){
@@ -39,7 +26,23 @@ function init() {
     $('.content-close').addEventListener('click', e => closeContent());
 
     // components
-    const Card = function(data){
+    const Menu = (function(){
+        Array.from($$('.link')).map(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                $('.home').classList.add('is-hidden');
+                page = e.target.textContent.toLowerCase();
+                $('.content').classList.add('active');
+                $('nav').classList.add('is-hidden');
+                setTimeout(function () {
+                    $('.content-close').classList.add('active');
+                    $(`#${page}`).classList.add('active');
+                }, 500);
+            });
+        });
+    })();
+
+    const Cards = function(data){
         return `
             ${data.map(card => `
                 <div class="card card--labs">
@@ -80,6 +83,6 @@ function init() {
 
     // labs
     getApi("labs").then(data => {        
-        render('#labs', Card(data));
+        render('#labs', Cards(data));
     });
 }

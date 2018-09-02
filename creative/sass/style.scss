@@ -192,9 +192,21 @@ body {
     display: none;
     max-width: 1024px;
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 30px;
     &.active{
       display: block;
+    }
+    .content-close{
+      opacity: 0;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: right;
+      padding-bottom: 30px;
+      transition: opacity .5s ease-in-out;
+      &.active{
+        opacity: 1;
+      }
     }
     .heading-labs{
       display: flex;

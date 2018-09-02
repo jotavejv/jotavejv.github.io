@@ -145,9 +145,19 @@ body {
     display: none;
     max-width: 1024px;
     margin: 0 auto;
-    padding-top: 50px; }
+    padding-top: 30px; }
     .wrapper .content.active {
       display: block; }
+    .wrapper .content .content-close {
+      opacity: 0;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: right;
+      padding-bottom: 30px;
+      transition: opacity .5s ease-in-out; }
+      .wrapper .content .content-close.active {
+        opacity: 1; }
     .wrapper .content .heading-labs {
       display: flex;
       flex-direction: column;
