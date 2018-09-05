@@ -167,9 +167,9 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 20px; }
+      margin-bottom: 30px; }
       .wrapper .content .heading-about .social {
-        font-size: 22px;
+        font-size: 24px;
         color: #555;
         display: inline-flex;
         position: fixed;
@@ -183,7 +183,7 @@ body {
         .wrapper .content .heading-about .social li {
           transition: color .15s ease; }
           .wrapper .content .heading-about .social li:hover {
-            color: #52aeff; }
+            color: #1893ff; }
         .wrapper .content .heading-about .social li:not(:last-child) {
           margin-right: 12px; }
     .wrapper .content .grid-container {
@@ -316,3 +316,7 @@ body {
       list-style-position: inside;
       margin-top: 20px;
       font-size: 16px; }
+    .tabs__content .link {
+      color: #1893ff;
+      font-size: .85em;
+      text-decoration: underline; }
