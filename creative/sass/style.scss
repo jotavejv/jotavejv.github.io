@@ -419,8 +419,11 @@ body {
     .link{
       color: $linkColor;
       font-size: .85em;
-      //font-weight: bold;
       text-decoration: underline;
+    }
+    i{
+      font-size: .9em;
+      font-weight: bold;
     }
   }
 }
