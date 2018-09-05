@@ -37,7 +37,7 @@ function init() {
                 setTimeout(function () {
                     $('.content-close').classList.add('active');
                     $(`#${page}`).classList.add('active');
-                }, 500);
+                }, 250);
             });
         });
     })();
