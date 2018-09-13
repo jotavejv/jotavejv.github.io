@@ -27,7 +27,7 @@ function init() {
 
     // components
     const Menu = (function(){
-        Array.from($$('.link')).map(link => {
+        Array.from($$('nav li:not(#contact)')).map(link => {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
                 $('.home').classList.add('is-hidden');
@@ -84,5 +84,9 @@ function init() {
     // labs
     getApi("labs").then(data => {        
         render('#labs', Cards(data));
+    });
+    // Projects
+    getApi("projects").then(data => {        
+        render('#projects', Cards(data));
     });
 }

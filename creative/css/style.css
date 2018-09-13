@@ -110,7 +110,7 @@ body {
     z-index: 1;
     font-size: 14px;
     font-weight: bold;
-    animation: nav 0.5s 5s ease-in-out forwards; }
+    animation: nav 0.5s 4s ease-in-out forwards; }
     .home nav ul {
       display: flex; }
       .home nav ul a {
@@ -167,38 +167,38 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 30px; }
-      .wrapper .content .heading-about .social {
-        font-size: 24px;
-        color: #555;
-        display: inline-flex;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        justify-content: center;
-        padding: 20px;
-        background: #fff; }
-        .wrapper .content .heading-about .social ul {
-          display: flex; }
-        .wrapper .content .heading-about .social li {
-          transition: color .15s ease; }
-          .wrapper .content .heading-about .social li:hover {
-            color: #1893ff; }
-        .wrapper .content .heading-about .social li:not(:last-child) {
-          margin-right: 12px; }
+      margin-bottom: 70px; }
+    .wrapper .content .social {
+      font-size: 24px;
+      color: #555;
+      display: inline-flex;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      justify-content: center;
+      padding: 20px;
+      background: #fff; }
+      .wrapper .content .social ul {
+        display: flex; }
+      .wrapper .content .social li {
+        transition: color .15s ease; }
+        .wrapper .content .social li:hover {
+          color: #1893ff; }
+      .wrapper .content .social li:not(:last-child) {
+        margin-right: 12px; }
     .wrapper .content .grid-container {
       margin-top: 50px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 20px; }
 
-#about, #labs {
+#about, #labs, #projects {
   opacity: 0;
   visibility: hidden;
   height: 0;
   overflow: hidden;
   transition: opacity .5s ease-in-out; }
-  #about.active, #labs.active {
+  #about.active, #labs.active, #projects.active {
     opacity: 1;
     visibility: visible;
     height: auto; }
@@ -312,9 +312,9 @@ body {
     .tabs__content .active {
       display: block; }
     .tabs__content .short-bio-list {
-      list-style: disc;
+      list-style: square;
       list-style-position: inside;
-      margin-top: 20px;
+      margin-top: 32px;
       font-size: 16px; }
     .tabs__content .link {
       color: #1893ff;
