@@ -10,8 +10,8 @@
 
 $navBG: #f3f3f3;
 $navDelay: 3.5s;
-$tabColor: #52aeff;
-$linkColor: #1893ff;
+$tabColor: #1893ff;
+$linkColor: #52aeff;
 
 ::-webkit-scrollbar {
   height: 14px;
@@ -259,6 +259,11 @@ body {
         opacity: 1;
       }
     }
+    .link {
+      color: $linkColor;
+      font-size: .85em;
+      text-decoration: underline;
+    }
     .heading-about{
       display: flex;
       flex-direction: column;
@@ -266,11 +271,11 @@ body {
       margin-bottom: 70px;
     }
     .grid-container{
-      margin-top: 50px;
+      margin-top: 60px;
       display: grid;
       grid-template-columns: repeat(var(--gridColumn), 1fr);
       grid-gap: var(--gridGap);
-      padding-bottom: 20px;
+      padding-bottom: 70px;
     }
   }
 }
@@ -317,7 +322,7 @@ body {
   }
   &__description{
     font-size: 15px;
-    max-width: 270px;
+    max-width: calc(100% - (var(--cardImage) + 15px));
     line-height: 1.5;
   }
   &__image{
@@ -353,63 +358,80 @@ body {
 }
 
 .tag{
-  text-transform: uppercase;
+  text-transform: lowercase;
   padding: 5px 10px;
   display: inline-flex;
   align-items: center;
   border-radius: 3px;
   font-size: 12px;
   font-weight: bold;
-  color: #666;
-  //border: 1px solid rgba(black, .2);
+  color: #888;
+  border: 1px solid rgba(black, .2);
+  border-radius: 20px;
 
   &:not(:last-child){
     margin-right: 8px;
   }
 
   &--sass{
-    background: #FFE7FB;
-    //border-color: #FFE7FB;
+    border-color: #ffcdd2;
   }
   &--html{
-    background: #FEDDB7;
-    //border-color: #FEDDB7;
+    border-color: #b3e5fc;
   }
   &--animation{
-    background: #FCC6C6;
-    //border-color: #FCC6C6;
+    border-color: #e1bee7;
   }
   &--one-div{
-    background: #CAE9FF;
-    //border-color: #CAE9FF;
+    border-color: #bcaaa4;
   }
   &--css{
-    background: #BAE9E3;
-    //border-color: #BAE9E3;
+    border-color: #ffccbc;
   }
   &--javascript, &--js{
-    background: #BAE9E3;
-    //border-color: #BAE9E3;
+    border-color: #bdbdbd;
   }
-  &--open-source{
-    background: #BAE9E3;
-    //border-color: #BAE9E3;
+  &--open-source, &--github{
+    border-color: #BAE9E3;
   }
   &--npm{
-    background: #BAE9E3;
-    //border-color: #BAE9E3;
+    border-color: #d4e157;
   }
   &--gulp{
-    background: #BAE9E3;
-    //border-color: #BAE9E3;
+    border-color: #e1bee7;
   }
   &--svg{
-    background: #BAE9E3;
-    //border-color: #BAE9E3;
+    border-color: #80cbc4;
   }
   &--responsive{
-    background: #BAE9E3;
-    //border-color: #BAE9E3;
+    border-color: #c5cae9;
+  }
+  &--less{
+    border-color: #BAE9E3;
+  }
+  &--bower{
+    border-color: #ffb74d;
+  }
+  &--knockoutjs{
+    border-color: #dce775;
+  }
+  &--api{
+    border-color: #80deea;
+  }
+  &--maps{
+    border-color: #b2dfdb;
+  }
+  &--udacity{
+    border-color: #64b5f6;
+  }
+  &--canvas{
+    border-color: #fdd835;
+  }
+  &--pwa{
+    border-color: #fdd835;
+  }
+  &--offline{
+    border-color: #8d6e63;
   }
 }
 
@@ -429,7 +451,7 @@ body {
 }
 
 .page-description{
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .tabs{
@@ -489,7 +511,7 @@ body {
       }
 
       li:not(:last-child) {
-        margin-right: 12px;
+        margin-right: 14px;
       }
     }
     & > div{
@@ -503,11 +525,6 @@ body {
       list-style-position: inside;
       margin-top: 32px;
       font-size: 16px;
-    }
-    .link{
-      color: $linkColor;
-      font-size: .85em;
-      text-decoration: underline;
     }
     i{
       font-size: .9em;
