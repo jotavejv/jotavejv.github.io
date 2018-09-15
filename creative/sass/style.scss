@@ -4,14 +4,34 @@
   --layout: 1024px;
   --cardImage: 150px;
   --fontSizeLogo: 50px;
-  --navFontSize: 14px;
+  --navFontSize: 16px;
   --easing: cubic-bezier(.52, 0, .53, 1);
 }
 
-$navBG: #e9e9e9;
-$navDelay: 0s;
+$navBG: #f3f3f3;
+$navDelay: 3.5s;
 $tabColor: #52aeff;
 $linkColor: #1893ff;
+
+::-webkit-scrollbar {
+  height: 14px;
+  width: 14px;
+  background:0 0;
+  -webkit-appearance:none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bbb;
+  -webkit-border-radius: 0;
+  border: 4px solid transparent;
+  background-clip: content-box;
+  border-radius: 12px
+}
+
+::-webkit-scrollbar-corner {
+  background: 0 0;
+  margin: 10px
+}
 
 * {
   box-sizing: border-box;
@@ -48,7 +68,7 @@ body {
 }
 
 .home {
-  $bgColor: rgb(250, 250, 250);
+  $bgColor: #fff;
   $fontColor: #3c3c3c;
   background: $bgColor;
   position: relative;
@@ -86,7 +106,7 @@ body {
       box-shadow: 0 0 0 8px $bgColor;
       z-index: 1;
       transform: rotate(25deg);
-      animation: line 0.5s 1s var(--easing) forwards;
+      animation: line .5s 1s var(--easing) forwards;
     }
 
     .text-left,
@@ -148,17 +168,29 @@ body {
 
   nav{
     font-family: "Open Sans";
-    opacity: 0;
-    visibility: hidden;
     position: absolute;
     bottom: 0;
-    right: calc(var(--navFontSize));
+    right: 0;
     z-index: 1;
     font-size: var(--navFontSize);
-    font-weight: bold;
-    animation: nav .5s $navDelay var(--easing) forwards;
+    //font-weight: bold;
     ul{
       display: flex;
+      li{
+        transform: translateY(20px);
+        opacity: 0;
+        visibility: hidden;
+        animation: nav .5s $navDelay var(--easing) forwards;
+        &:nth-child(2){
+          animation-delay: $navDelay + .15s;
+        }
+        &:nth-child(3){
+          animation-delay: $navDelay + .2s;
+        }
+        &:nth-child(4){
+          animation-delay: $navDelay + .25s;
+        }
+      }
       a{
         padding: 8px 12px;
         line-height: 1;
@@ -172,6 +204,7 @@ body {
 
     @keyframes nav {
       to{
+        transform: translateY(0);
         opacity: 1;
         visibility: visible;
       }
@@ -198,6 +231,7 @@ body {
 }
 
 .wrapper{
+  background: #f3f3f3;
   position: absolute;
   left: 0;
   right: 0;
@@ -231,30 +265,6 @@ body {
       align-items: center;
       margin-bottom: 70px;
     }
-    .social {
-      font-size: 24px;
-      color: #555;
-      display: inline-flex;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      justify-content: center;
-      padding: 20px;
-      background: #fff;
-
-      ul {
-        display: flex;
-      }
-      li{
-        transition: color .15s ease;
-        &:hover {
-          color: $linkColor;
-        }
-      }
-      li:not(:last-child){
-        margin-right: 12px;
-      }
-    }
     .grid-container{
       margin-top: 50px;
       display: grid;
@@ -284,12 +294,13 @@ body {
   background: #fff;
   border-radius: 4px;
   padding: 16px;
-  box-shadow: 0 2px 6px rgba(black, .25);
+  box-shadow: 0 40px 60px -16px rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 240px;
   overflow: hidden;
   color: $bodyColor;
   line-height: 1;
+  //transition: box-shadow .15s var(--easing);
   &__link{
     height: 100%;
     display: block;
@@ -315,13 +326,14 @@ body {
     right: 0;
     width: var(--cardImage);
     height: var(--cardImage);
+    transition: all .2s var(--easing);
     filter: drop-shadow(0 0 4px rgba(black, .35));
     img{
       opacity: 0.8;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
       width: 100%;
       height: 100%;
-      transition: all .25s var(--easing);
+      transition: all .2s var(--easing);
     }
   }
   &__tags{
@@ -331,10 +343,11 @@ body {
   }
 
   &:hover{
+    //box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    --cardImage: 155px;
     img{
       opacity: 1;
       transform: scale(1.1);
-      //clip-path: polygon(0 0, 100% 0, 100% 100%, 60% 100%);
     }
   }
 }
@@ -442,10 +455,43 @@ body {
     }
   }
   &__content{
+    padding: 0 8px;
     padding-top: 32px;
-    padding-left: 8px;
     font-size: 18px;
     line-height: 1.5;
+    position: relative;
+    .social {
+      padding-right: 8px;
+      font-size: 18px;
+      color: #666;
+      display: inline-flex;
+      width: 100%;
+      justify-content: flex-end;
+      position: absolute;
+      top: -34px;
+      right: 0;
+      pointer-events: none;
+      i{
+        font-weight: normal;
+        font-size: 1em;
+      }
+
+      ul {
+        display: flex;
+      }
+
+      li {
+        transition: color .15s ease;
+        pointer-events: auto;
+        &:hover {
+          color: $linkColor;
+        }
+      }
+
+      li:not(:last-child) {
+        margin-right: 12px;
+      }
+    }
     & > div{
       display: none;
     }
