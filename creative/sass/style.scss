@@ -545,6 +545,7 @@ main {
     max-width: calc(100% - 50px);
   }
   .tabs__content{
+    padding-bottom: 50px;
     .social {
       background: #fff;
       position: fixed;
@@ -562,6 +563,14 @@ main {
 @media (max-width: 500px) {
   :root {
     --navFontSize: 14px;
+  }
+  #about,
+  #labs,
+  #projects{
+    padding: 5px;
+  }
+  .wrapper .content .heading-about{
+    margin-bottom: 20px;
   }
   .home{
     nav{

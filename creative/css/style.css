@@ -415,20 +415,28 @@ main {
     margin-bottom: 30px; }
   .card__description {
     max-width: calc(100% - 50px); }
-  .tabs__content .social {
-    background: #fff;
-    position: fixed;
-    top: auto;
-    bottom: 0;
-    width: 100%;
-    justify-content: center;
-    padding: 10px; }
-    .tabs__content .social li {
-      padding: 0 6px; } }
+  .tabs__content {
+    padding-bottom: 50px; }
+    .tabs__content .social {
+      background: #fff;
+      position: fixed;
+      top: auto;
+      bottom: 0;
+      width: 100%;
+      justify-content: center;
+      padding: 10px; }
+      .tabs__content .social li {
+        padding: 0 6px; } }
 
 @media (max-width: 500px) {
   :root {
     --navFontSize: 14px; }
+  #about,
+  #labs,
+  #projects {
+    padding: 5px; }
+  .wrapper .content .heading-about {
+    margin-bottom: 20px; }
   .home nav {
     margin: auto;
     width: 500px;
