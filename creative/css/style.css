@@ -211,14 +211,18 @@ main {
       grid-gap: var(--gridGap);
       padding-bottom: 70px; }
 
-#about, #labs, #projects {
+#about,
+#labs,
+#projects {
   opacity: 0;
   visibility: hidden;
   height: 0;
   overflow: hidden;
   transition: opacity 0.5s var(--easing);
   padding: 0 20px; }
-  #about.active, #labs.active, #projects.active {
+  #about.active,
+  #labs.active,
+  #projects.active {
     opacity: 1;
     visibility: visible;
     height: auto; }
@@ -415,6 +419,8 @@ main {
     margin-bottom: 30px; }
   .card__description {
     max-width: calc(100% - 50px); }
+  .tabs__item {
+    font-size: 16px; }
   .tabs__content {
     padding-bottom: 50px; }
     .tabs__content .social {
@@ -424,13 +430,15 @@ main {
       bottom: 0;
       width: 100%;
       justify-content: center;
-      padding: 10px; }
+      padding: 10px;
+      font-size: 20px; }
       .tabs__content .social li {
-        padding: 0 6px; } }
+        padding: 0;
+        margin: 0 !important; }
+        .tabs__content .social li a {
+          padding: 10px 15px; } }
 
 @media (max-width: 500px) {
-  :root {
-    --navFontSize: 14px; }
   #about,
   #labs,
   #projects {
