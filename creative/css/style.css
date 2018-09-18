@@ -5,7 +5,8 @@
   --cardImage: 150px;
   --fontSizeLogo: 50px;
   --navFontSize: 16px;
-  --easing: cubic-bezier(.52, 0, .53, 1); }
+  --easing: cubic-bezier(.52, 0, .53, 1);
+  --test: travis; }
 
 ::-webkit-scrollbar {
   height: 12px;
