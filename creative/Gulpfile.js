@@ -28,4 +28,6 @@ gulp.task('server', ['sass'], function () {
     gulp.watch("./*.html").on('change', browserSync.reload);
 });
 
+gulp.task('build', ['sass'], function () {});
+
 gulp.task('default',['server']);
