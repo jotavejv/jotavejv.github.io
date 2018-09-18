@@ -115,7 +115,7 @@ main {
         .home .body .text-right p:nth-child(3) {
           animation-delay: 2.75s; }
     .home .body .text-left {
-      left: -330px; }
+      left: -331px; }
       .home .body .text-left p {
         text-align: right;
         margin-top: -40px;
@@ -193,11 +193,15 @@ main {
       padding: 0 20px;
       padding-bottom: 30px;
       transition: opacity 0.5s var(--easing); }
+      .wrapper .content .content-close i {
+        transition: all .2s ease; }
+      .wrapper .content .content-close:hover i {
+        margin-right: 5px;
+        color: #52aeff; }
       .wrapper .content .content-close.active {
         opacity: 1; }
     .wrapper .content .link {
       color: #52aeff;
-      font-size: .85em;
       text-decoration: underline; }
     .wrapper .content .heading-about {
       display: flex;
@@ -252,7 +256,7 @@ main {
     line-height: 1.25; }
   .card__description {
     font-size: 15px;
-    max-width: calc(100% - (var(--cardImage) + 15px));
+    max-width: calc(100% - (var(--cardImage) + 25px));
     line-height: 1.5; }
   .card__image {
     position: absolute;
@@ -349,15 +353,15 @@ main {
   font-size: 14px; }
 
 .tabs {
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto; }
   .tabs > ul {
     display: flex;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
   .tabs__item {
-    padding: 8px 12px;
+    padding: 8px 16px;
     border-bottom: 3px solid transparent;
-    font-size: 14px;
+    font-size: 16px;
     transition: color .15s ease; }
     .tabs__item:hover {
       cursor: pointer;
@@ -372,6 +376,10 @@ main {
     font-size: 18px;
     line-height: 1.5;
     position: relative; }
+    .tabs__content .link {
+      font-size: .85em; }
+    .tabs__content p {
+      margin-bottom: 20px; }
     .tabs__content .social {
       padding-right: 8px;
       font-size: 18px;
@@ -401,26 +409,25 @@ main {
       display: block; }
     .tabs__content .short-bio-list {
       list-style: square;
-      list-style-position: inside;
-      margin-top: 32px;
-      font-size: 16px; }
+      list-style-position: inside; }
     .tabs__content i {
       font-size: .9em;
       font-weight: bold; }
+    .tabs__content #bio ol {
+      list-style-position: inside;
+      margin-bottom: 20px;
+      font-style: italic;
+      font-size: .95em; }
 
 @media (max-width: 768px) {
   :root {
     --gridColumn: 1;
     --fontSizeLogo: 40px;
     --navFontSize: 16px; }
-  .home.is-hidden {
-    transform: scale(0.75); }
   .card__title {
     margin-bottom: 30px; }
   .card__description {
     max-width: calc(100% - 50px); }
-  .tabs__item {
-    font-size: 16px; }
   .tabs__content {
     padding-bottom: 50px; }
     .tabs__content .social {
@@ -436,7 +443,7 @@ main {
         padding: 0;
         margin: 0 !important; }
         .tabs__content .social li a {
-          padding: 10px 15px; } }
+          padding: 10px 16px; } }
 
 @media (max-width: 500px) {
   #about,
