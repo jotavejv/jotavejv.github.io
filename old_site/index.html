@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content=" Freelancer, CSS3, Front-End, Animations, UI Developer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jv.css">
+    <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css">
+    <script src="javascripts/min/main.min.js"></script>
+    <title>João Victor JV | Front-End | CSS3 | Animations | UI Developer | jotavejv</title>
+</head>
+
+<body>
+    <div id="wrapper" hidden>
+        <p class="slogan"></p>
+        <div class="avatar"></div>
+        <div id="hover-avatar"></div>
+        <ul class="icons"></ul>
+        <div class="site-link">
+            <p><a href="http://websolucoesjv.com/" target="_blank">websolucoesjv.com</a></p>
+        </div>
+    </div>
+    <script>
+    function init() {
+        const body = document.body,
+            ul = document.querySelector('.icons'),
+            slogan = document.querySelector('.slogan'),
+            hoverAvatar = document.querySelector('#hover-avatar'),
+            avatar = document.querySelector('.avatar');
+
+            avatar.addEventListener("animationend", function(event) {
+              hoverAvatar.classList.add('animation-end');
+            }, false);
+
+        function getRandomInt(min, max) {
+          return Math.round(Math.random() * (max - min) + min);
+        }
+        theme = getRandomInt(1, 3);
+        console.log(theme);
+
+        switch(theme){
+            case 1: 
+              body.classList.add('dark');
+              break;
+            case 2: 
+              body.classList.add('gradient');
+              break;
+            case 3:
+              body.classList.add('clean');
+              break;
+            default: 
+              break;
+        }
+
+        const model = {
+            "icons": [{
+                "name": "fa-codepen",
+                "url": "http://codepen.io/jotavejv/"
+            }, {
+                "name": "fa-medium",
+                "url": "https://medium.com/@jotavejv"
+            }, {
+                "name": "fa-linkedin",
+                "url": "http://br.linkedin.com/in/joaovictorjv"
+            }, {
+                "name": "fa-twitter",
+                "url": "https://twitter.com/_jotavejv"
+            }, {
+                "name": "fa-google-plus",
+                "url": "https://plus.google.com/u/1/communities/118377057769827266257"
+            }, {
+                "name": "fa-envelope-o",
+                "url": "mailto:contatos.jv@hotmail.com"
+            }],
+            "sentence": "I'm a CSS and animation lover"
+        }
+        model.icons.forEach((icon) => {
+            const listItem = document.createElement("li");
+            listItem.classList.add("icon");
+            listItem.innerHTML =
+                `<a href='${icon.url}' target="_blank">
+                <i class='fa ${icon.name}'><i/>
+            </a>`;
+            ul.appendChild(listItem);
+        });
+        slogan.textContent = model.sentence;
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+    </script>
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-43403124-1', 'jotavejv.github.io');
+    ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
