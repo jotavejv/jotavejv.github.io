@@ -47,7 +47,7 @@ function init() {
         Array.from($$('nav li')).map(link => {
             link.addEventListener('click', function (e) {
                 if(link.id == "contact") {
-                    send(contact);
+                    track("contact", "contact menu");
                     return;
                 };
                 e.preventDefault();
