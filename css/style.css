@@ -116,7 +116,7 @@ main {
         .home .body .text-right p:nth-child(3) {
           animation-delay: 2.75s; }
     .home .body .text-left {
-      left: -331px; }
+      left: -332px; }
       .home .body .text-left p {
         text-align: right;
         margin-top: -40px;
@@ -128,7 +128,7 @@ main {
     font-family: "Open Sans";
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: -8px;
     z-index: 1;
     font-size: var(--navFontSize); }
     .home nav ul {
@@ -147,10 +147,13 @@ main {
       .home nav ul a {
         padding: 8px 12px;
         line-height: 1;
-        transition: background .25s ease;
-        border-radius: 4px; }
+        transition: all .25s ease;
+        border-radius: 4px;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.7); }
         .home nav ul a:hover {
-          background: #f3f3f3; }
+          background: #f3f3f3;
+          color: inherit; }
 
 @keyframes nav {
   to {

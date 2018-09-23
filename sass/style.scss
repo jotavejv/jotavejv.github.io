@@ -151,7 +151,7 @@ main {
     }
 
     .text-left {
-      left: -331px;
+      left: -332px;
 
       p {
         text-align: right;
@@ -168,7 +168,7 @@ main {
     font-family: "Open Sans";
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: -8px;
     z-index: 1;
     font-size: var(--navFontSize);
 
@@ -198,11 +198,14 @@ main {
       a {
         padding: 8px 12px;
         line-height: 1;
-        transition: background .25s ease;
+        transition: all .25s ease;
         border-radius: 4px;
+        font-weight: bold;
+        color: rgba(black, .7);
 
         &:hover {
           background: $navBG;
+          color: inherit;
         }
       }
     }
