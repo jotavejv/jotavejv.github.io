@@ -7,8 +7,24 @@ function init() {
         return fetch(`${API}/${data}`)
         .then(response => response.json())
     };
-
     let page;
+
+    function pageview(view){
+        ga('send', 'pageview', `/${view}`);
+    }
+
+    function track(categorie, element){
+        ga('send', 'event', `${categorie}`, 'click', `${element}`);
+    }
+
+    function bindCardsTracking(){
+        Array.from($$('.card__link')).map(card => {
+            card.addEventListener('click', function (e) {
+                let data = card.dataset.track;
+                track("card", data);
+            });
+        });
+    }
 
     function closeContent() {
         $('.home').classList.remove('is-hidden');
@@ -20,6 +36,7 @@ function init() {
     // render
     const render = function(target, content){
         $(`${target} .grid-container`).innerHTML = content;
+        bindCardsTracking();
     }
 
     // content
@@ -27,8 +44,12 @@ function init() {
 
     // components
     const Menu = (function(){
-        Array.from($$('nav li:not(#contact)')).map(link => {
+        Array.from($$('nav li')).map(link => {
             link.addEventListener('click', function (e) {
+                if(link.id == "contact") {
+                    send(contact);
+                    return;
+                };
                 e.preventDefault();
                 $('.home').classList.add('is-hidden');
                 page = e.target.textContent.toLowerCase();
@@ -37,16 +58,35 @@ function init() {
                 setTimeout(function () {
                     $('.content-close').classList.add('active');
                     $(`#${page}`).classList.add('active');
-                }, 250);
+                    pageview(page);
+                }, 300);
             });
         });
-    })();   
+    })();
+
+    const SocialLink = (function(){
+        Array.from($$('.social li')).map(social => {
+            social.addEventListener('click', function (e) {
+                let data = social.dataset.track;
+                track("social", data);
+            });
+        });
+    })();
+
+    const GlobalLink = (function(){
+        Array.from($$('.link')).map(link => {
+            link.addEventListener('click', function (e) {
+                let data = link.dataset.track;
+                track("external links", data);
+            });
+        });
+    })();
 
     const Cards = function(data){
         return `
             ${data.map(card => `
                 <div class="card">
-                    <a href="${card.url}" target="_blank" class="card__link">
+                    <a href="${card.url}" target="_blank" class="card__link" data-track="${card.title}">
                         <h2 class="card__title">
                             ${card.title}
                         </h2>
@@ -74,9 +114,9 @@ function init() {
                     $('.tabs__item.active').classList.remove('active');
                     this.classList.add('active');
                     let tabContent = this.textContent.toLowerCase().trim().replace(' ', '-');
-                    
                     $('.tabs__content > .active').classList.remove('active');
                     $(`#${tabContent}`).classList.add('active');
+                    track("tab content", tabContent);
                 });
             });
     })();
