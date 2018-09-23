@@ -10,7 +10,8 @@ function init() {
     let page;
 
     function pageview(view){
-        ga('send', 'pageview', `/${view}`);
+        ga('set', 'page', `/${view}`);
+        ga('send', 'pageview');
     }
 
     function track(categorie, element){
