@@ -6,7 +6,6 @@
   --fontSizeLogo: 50px;
   --navFontSize: 16px;
   --easing: cubic-bezier(.52, 0, .53, 1);
-  --test: travis;
 }
 
 $navBG: #f3f3f3;
@@ -239,7 +238,7 @@ main {
 }
 
 .wrapper {
-  background: #f3f3f3;
+  background: #f4f8fb;
   position: absolute;
   left: 0;
   right: 0;
