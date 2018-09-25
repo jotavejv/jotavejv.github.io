@@ -6,7 +6,7 @@
   --fontSizeLogo: 50px;
   --navFontSize: 16px;
   --easing: cubic-bezier(.52, 0, .53, 1);
-  --test: travis; }
+  --contentColor: #f4f8fb; }
 
 ::-webkit-scrollbar {
   height: 12px;
@@ -71,6 +71,8 @@ main {
     font-size: var(--fontSizeLogo);
     color: #3c3c3c;
     transform: translateX(-80px); }
+    .home .body p {
+      transition: all .2s ease; }
     .home .body .line {
       border-left: 4px solid #3c3c3c;
       height: 0;
@@ -131,6 +133,9 @@ main {
     right: -8px;
     z-index: 1;
     font-size: var(--navFontSize); }
+    .home nav:hover ~ .text-left p,
+    .home nav:hover ~ .text-right p {
+      letter-spacing: 2px; }
     .home nav ul {
       display: flex; }
       .home nav ul li {
@@ -174,7 +179,7 @@ main {
     transform: scaleX(1); } }
 
 .wrapper {
-  background: #f3f3f3;
+  background: var(--contentColor);
   position: absolute;
   left: 0;
   right: 0;
@@ -206,7 +211,10 @@ main {
         opacity: 1; }
     .wrapper .content .link {
       color: #52aeff;
-      text-decoration: underline; }
+      text-decoration: underline;
+      transition: color .15s linear; }
+      .wrapper .content .link:hover {
+        color: #007deb; }
     .wrapper .content .heading-about {
       display: flex;
       flex-direction: column;
@@ -344,7 +352,10 @@ main {
   font-family: "Limelight";
   position: relative;
   margin-bottom: 15px;
-  display: inline-flex; }
+  display: inline-flex;
+  transition: all .2s ease; }
+  .heading:hover {
+    letter-spacing: 2px; }
   .heading::before {
     content: "";
     position: absolute;
@@ -357,8 +368,9 @@ main {
   font-size: 14px; }
 
 .tabs {
-  max-width: 720px;
-  margin: 0 auto; }
+  max-width: 820px;
+  margin: 0 auto;
+  padding-bottom: 60px; }
   .tabs > ul {
     display: flex;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
@@ -375,11 +387,13 @@ main {
       color: #1893ff;
       font-weight: bold; }
   .tabs__content {
-    padding: 0 8px;
-    padding-top: 32px;
+    padding: 50px;
     font-size: 18px;
     line-height: 1.5;
-    position: relative; }
+    position: relative;
+    background: #fff;
+    box-shadow: 0 20px 20px -16px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 5px 5px; }
     .tabs__content .link {
       font-size: .85em; }
     .tabs__content p {
@@ -433,7 +447,7 @@ main {
   .card__description {
     max-width: calc(100% - 50px); }
   .tabs__content {
-    padding-bottom: 50px; }
+    padding: 32px 20px; }
     .tabs__content .social {
       background: #fff;
       position: fixed;
