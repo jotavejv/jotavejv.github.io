@@ -71,8 +71,6 @@ main {
     font-size: var(--fontSizeLogo);
     color: #3c3c3c;
     transform: translateX(-80px); }
-    .home .body p {
-      transition: all .2s ease; }
     .home .body .line {
       border-left: 4px solid #3c3c3c;
       height: 0;
@@ -133,9 +131,6 @@ main {
     right: -8px;
     z-index: 1;
     font-size: var(--navFontSize); }
-    .home nav:hover ~ .text-left p,
-    .home nav:hover ~ .text-right p {
-      letter-spacing: 2px; }
     .home nav ul {
       display: flex; }
       .home nav ul li {
@@ -441,7 +436,8 @@ main {
   :root {
     --gridColumn: 1;
     --fontSizeLogo: 40px;
-    --navFontSize: 16px; }
+    --navFontSize: 16px;
+    --contentColor: #f3f3f3; }
   .card__title {
     margin-bottom: 30px; }
   .card__description {

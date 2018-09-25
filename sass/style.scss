@@ -88,9 +88,6 @@ main {
     font-size: var(--fontSizeLogo);
     color: $fontColor;
     transform: translateX(-80px);
-    p{
-      transition: all .2s ease;
-    }
 
     .line {
       border-left: 4px solid $fontColor;
@@ -173,16 +170,6 @@ main {
     right: -8px;
     z-index: 1;
     font-size: var(--navFontSize);
-
-    &:hover {
-      & ~ .text-left,
-      & ~ .text-right {
-        p {
-          letter-spacing: 2px;
-        }
-      }
-    }
-
     //font-weight: bold;
     ul {
       display: flex;
@@ -643,6 +630,7 @@ main {
     --gridColumn: 1;
     --fontSizeLogo: 40px;
     --navFontSize: 16px;
+    --contentColor: #f3f3f3;
   }
 
   .card__title {
@@ -677,9 +665,6 @@ main {
 }
 
 @media (max-width: 500px) {
-  :root {
-    //--navFontSize: 14px;
-  }
 
   #about,
   #labs,
