@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var webpack = require('webpack-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var fs = require('fs');
@@ -31,6 +32,7 @@ gulp.task('sass', function () {
 
 gulp.task('js', function () {
     return gulp.src('./*.js')
+        .pipe(webpack(require('./webpack.config.js')))
         .pipe(gulp.dest('./'))
         .pipe(browserSync.stream());
 });
