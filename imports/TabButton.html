@@ -1,0 +1,14 @@
+<div class="tab-button">
+    <div class="tab-button-grouped">
+        @for(var i=0; i<buttons.length; i++){
+            <div class="tab-button-element tab-button-element--`+buttons[i].disabled+` `+buttons[i].active+`">
+                <button class="ui-button ui-button--default ui-button--@size">
+                    <span class="icon-element">
+                        <span class="`+buttons[i].icon+`"></span>
+                    </span>
+                    <span>`+buttons[i].text+`</span>
+                </button>
+            </div>
+        }
+    </div>
+</div>

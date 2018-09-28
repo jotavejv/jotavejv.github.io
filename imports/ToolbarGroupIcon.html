@@ -1,0 +1,13 @@
+<div class="ui-toolbar">
+    <div class="ui-toolbar-grouped">
+        @for(var i=0; i<buttons.length; i++){
+            <div class="ui-toolbar-button">
+                @include('Button.html', {
+                    "size": "@size",
+                    "type": "`+buttons[i].type+`",
+                    "icon": "`+buttons[i].icon+`"
+                })
+            </div>
+        }
+    </div>
+</div>

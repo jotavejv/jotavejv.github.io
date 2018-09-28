@@ -1,0 +1,14 @@
+<div class="generic-label @class">
+    @if(typeof img == "string"){
+        <img src="@img" class="@imgClass img-border" alt="" width="@width" height="@height">
+    }
+    <div>
+        <p class="label-title">@title</p>
+        <p class="label-subtitle @bold @link">
+            @if(typeof imgSubtitle == "string"){
+                <img src="@imgSubtitle" alt="">
+            }
+            @subtitle
+        </p>
+    </div>
+</div>

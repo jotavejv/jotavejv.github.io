@@ -1,0 +1,15 @@
+<div class="zoom-lookup-with-button">
+    <div class="ui-input zoom-lookup">
+        @if(typeof label == "string"){
+            <label for="" class="ui-label ui-@required">@label</label>
+        }
+        <div class="zoom-lookup-wrapper">
+            <input type="text" placeholder="@placeholder">
+        </div>
+    </div>
+    <button class="ui-button ui-button--md ui-button--default">
+        <span class="icon-element">
+            <span class="seicon-search"></span>
+        </span>
+    </button>
+</div>

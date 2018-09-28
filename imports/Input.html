@@ -1,0 +1,34 @@
+<div class="ui-input full ui-@type">
+    <label for="" class="ui-label ui-@required">@label</label>
+    <input type="text" placeholder="@placeholder">
+    @if(typeof type == "string" && type == "error"){
+        <div class="form-content">
+            <span class="ui-message-label">@message</span>
+            <div class="icon-element">
+                <i class="seicon-warning-circle" aria-hidden="true"></i>
+            </div>
+        </div>
+    }
+    @if(typeof type == "string" && type == "warning"){
+        <div class="form-content">
+            <span class="ui-message-label">@message</span>
+            <div class="icon-element">
+                <i class="seicon-warning-circle" aria-hidden="true"></i>
+            </div>
+        </div>
+    }
+    @if(typeof type == "string" && type == "success"){
+        <div class="form-content">
+            <div class="icon-element">
+                <i class="seicon-check-circle" aria-hidden="true"></i>
+            </div>
+        </div>
+    }
+    @if(typeof limparCampo == "string"){
+        <div class="form-content">
+            <div class="icon-element limpar-campo">
+                <i class="seicon-cancel-circle" aria-hidden="true"></i>
+            </div>
+        </div>
+    }
+</div>

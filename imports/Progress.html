@@ -1,0 +1,10 @@
+<div class="ui-progress full ui-progress--@type ui-progress--@show-value">
+    <div class="ui-progress-bar">
+        @if(typeof value == "string"){
+            <span class="ui-progress-value">@value%</span>
+        }
+    </div>
+    @if(typeof indicator == "string"){
+        <div class="ui-progress-indicator" style="left: @indicatorValue%"></div>
+    }
+</div>

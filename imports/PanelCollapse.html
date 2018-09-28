@@ -1,0 +1,14 @@
+<div class="ui-panel ui-panel--collapse panel-active @error">
+    <div class="ui-panel-header">
+        <span class="seicon-right-dir"></span>
+        <h4>
+            @if(typeof img == "string"){
+                <img src="@img" alt="">
+            }
+            @header
+        </h4>
+    </div>
+    <div class="ui-panel--collapse-content" style="display: block">
+        @html
+    </div>
+</div>

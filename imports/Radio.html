@@ -1,0 +1,14 @@
+<div class="ui-radio">
+    @if(checked == "true"){
+        <input type="radio" class="radio-bullet" id="@id" name="@name" checked @disabled/>
+    }
+    @if(checked == "false"){
+        <input type="radio" class="radio-bullet" id="@id" name="@name" @disabled/>
+    }
+    <label for="@id">
+        <span class="radio">
+            <span></span>
+        </span>
+        @text
+    </label>
+</div>

@@ -1,0 +1,9 @@
+<div class="ui-slider-input is-@disabled">
+    <label for="" class="ui-label ui-@required">
+        @label
+    </label>
+    @if(showValue == "true"){
+        <span class="ui-slider-input-value">0</span>
+    }
+    <input type="range" min="0" max="@maxValue" step="1" value="@value">
+</div>

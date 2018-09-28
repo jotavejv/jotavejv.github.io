@@ -31,63 +31,11 @@
 </head>
 
 <body>
-    <div class="section-divider section-divider-comum">
-    <div class="section-divider-header">
-        <div class="section-divider-title">
-            <span>dfsfsdfsd  asdasdsa</span>
-        </div>
-        <hr>
-    </div>
-    <div class="section-divider-content" style="display: block">
-        <button class="ui-button ui-button--lg ui-button--default ui-button--@disabled @class">
-    
-    
-        <span>default large</span>
-    
-</button>
-
-
-<button class="ui-button ui-button--lg ui-button--primary ui-button--@disabled @class">
-    
-    
-        <span>primary large</span>
-    
-</button>
-
-
-<button class="ui-button ui-button--lg ui-button--danger ui-button--@disabled @class">
-    
-    
-        <span>danger large</span>
-    
-</button>
-
-
-<button class="ui-button ui-button--lg ui-button--default ui-button--disabled @class">
-    
-    
-        <span>disabled</span>
-    
-</button>
-
-
-<button class="ui-button ui-button--lg icon-only icon-only--@disabled @class">
-    <span class="icon-element">
-        <span class="seicon-smile"></span>
-    </span>
-</button>
-
-
-<button class="ui-button ui-button--lg icon-only icon-only--disabled @class">
-    <span class="icon-element">
-        <span class="seicon-smile"></span>
-    </span>
-</button>
-
-
-    </div>
-</div>
-
+    @include('Divider.html', {
+    "header": "dfsfsdfsd",
+    "active": "active",
+    "html": "@include('static/devcenter/buttons/large.html')"
+    })
     <main>
     	<div class="home">
     		<div class="body">

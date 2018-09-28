@@ -1,0 +1,18 @@
+<div class="radio-button">
+    <div class="radio-button-grouped">
+        @for(var i=0; i<buttons.length; i++){
+            <div class="radio-button-element">
+                <button class="ui-button ui-button--default ui-button--@size `+buttons[i].active+` ui-button--`+buttons[i].disabled+`">
+                    <!-- @if(typeof `+buttons[i].icon+` == "string"){
+                        <span class="icon-element">
+                            <span class="`+buttons[i].icon+`"></span>
+                        </span>
+                    } -->
+                    @if(typeof `+buttons[i].text+` == "string"){
+                        <span>`+buttons[i].text+`</span>
+                    }
+                </button>
+            </div>
+        }
+    </div>
+</div>

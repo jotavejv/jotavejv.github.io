@@ -1,0 +1,19 @@
+<div class="splitButton">
+    <button class="ui-button ui-button--@size ui-button--@type">
+        <span>@text</span>
+    </button>
+    <div class="split-button">
+        <button class="ui-button ui-button--@size ui-button--@type">
+            <span class="icon-element">
+                <span class="seicon-down-dir"></span>
+            </span>
+        </button>
+        <div class="ui-dropdown-options">
+            <ul>
+                @for(var i=0; i<options.length; i++){
+                    <li>`+options[i]+`</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

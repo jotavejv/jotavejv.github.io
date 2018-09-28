@@ -2,13 +2,31 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
+var fs = require('fs');
+var fileinclude = require('gulp-file-include');
+var rename = require("gulp-rename");
 var browserSync = require('browser-sync').create();
+
+var autoprefixerOptions = {
+    browsers: ['last 4 versions', 'safari >= 5', 'ie 11', 'opera >= 12.1', 'ios >= 6', 'android >= 4']
+};
+
+var fileincludeOptions = {
+    prefix: '@',
+    basepath: './imports',
+    context: {}
+}
 
 gulp.task('sass', function () {
     return gulp.src('./sass/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./css'))
-        .pipe(browserSync.stream());
+    .pipe(sourcemaps.init())
+    .pipe(sass({ outputStyle: 'compact' }).on('error', sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(gulp.dest('./css'))
+    .pipe(browserSync.stream({ match: '**/*.css' }));
 });
 
 gulp.task('js', function () {
@@ -16,6 +34,18 @@ gulp.task('js', function () {
         .pipe(gulp.dest('./'))
         .pipe(browserSync.stream());
 });
+
+var htmlRootFiles = fs.readdirSync("./").filter(html => html.includes('template.html'));
+
+function handlePublic(){
+    htmlRootFiles.map( (file) => {
+        return gulp.src('./' + file)
+        .pipe(fileinclude(fileincludeOptions))
+        .pipe(rename("index.html"))
+        .pipe(gulp.dest('./'))
+        browserSync.reload();
+    })
+}
 
 gulp.task('server', ['sass'], function () {
 
@@ -25,7 +55,7 @@ gulp.task('server', ['sass'], function () {
 
     gulp.watch('./sass/**/*.scss', ['sass']);
     gulp.watch('./*.js', ['js']);
-    gulp.watch("./*.html").on('change', browserSync.reload);
+    gulp.watch('./*.html', handlePublic);
 });
 
 gulp.task('build', ['sass'], function () {});
