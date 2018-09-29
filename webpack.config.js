@@ -2,24 +2,23 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './js/main.js',
+    entry: './js/app.js',
     output: {
-        path: path.resolve(__dirname, './dist/js'),
-        filename: 'main.js'
+        path: path.resolve(__dirname, './'),
+        filename: 'app.js'
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin(),
-        new webpack.ProvidePlugin({
-           $: "jquery",
-           jQuery: "jquery"
-         })
+        new webpack.optimize.UglifyJsPlugin()
+        // new webpack.ProvidePlugin({
+        //    $: "jquery",
+        //    jQuery: "jquery"
+        //  })
     ],
     module: {
         loaders: [
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/,
                 query: {
                     presets: ['es2015']
                 }
@@ -27,7 +26,7 @@ module.exports = {
         ]
     },
     resolve: {
-        modules: ["includes", "node_modules"]
+        modules: ["js", "node_modules"]
     },
     stats: {
         colors: true

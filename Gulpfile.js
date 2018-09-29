@@ -16,22 +16,22 @@ var autoprefixerOptions = {
 
 var fileincludeOptions = {
     prefix: '@',
-    basepath: './imports',
+    basepath: './static',
     context: {}
 }
 
 gulp.task('sass', function () {
     return gulp.src('./sass/**/*.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass({ outputStyle: 'compact' }).on('error', sass.logError))
+    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(sourcemaps.write())
     .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(gulp.dest('./css'))
-    .pipe(browserSync.stream({ match: '**/*.css' }));
+    .pipe(gulp.dest('./'))
+    .pipe(browserSync.stream({ match: './*.css' }));
 });
 
 gulp.task('js', function () {
-    return gulp.src('./*.js')
+    return gulp.src('./js/app.js')
         .pipe(webpack(require('./webpack.config.js')))
         .pipe(gulp.dest('./'))
         .pipe(browserSync.stream());
@@ -56,7 +56,7 @@ gulp.task('server', ['sass'], function () {
     });
 
     gulp.watch('./sass/**/*.scss', ['sass']);
-    gulp.watch('./*.js', ['js']);
+    gulp.watch('./js/*.js', ['js']);
     gulp.watch('./*.html', handlePublic);
 });
 
