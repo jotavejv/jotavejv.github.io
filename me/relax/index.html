@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#3498db">
+    <title>Breath! App</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app">
+    <h1 class="title">TAKE A TIME TO <span>BREATH</span></h1>
+    <div class="view">
+        <div class="pulse">
+            <h2 class="label">
+                <span class="in">Breath in</span>
+                <span class="out">Breath out</span>
+            </h2>
+        </div>
+    </div>
+    <h2 id="counter"></h2>
+</div>
+<button class="fab menu-button">
+    <i class="fa fa-bell-o" aria-hidden="true"></i>
+</button>
+<div class="menu">
+    <ul class="list">
+        <li class="list__item">
+            <div class="list__item__center">
+                <span>Session Times</span>
+                <span>times you want to breath in/out</span>
+            </div>
+            <div class="list__item__right">
+                <label>
+                    <input type="number" class="text-input" value="5" id="session" min="1">
+                </label>
+            </div>
+        </li>
+        <li class="list__item">
+            <div class="list__item__center">
+                <span>Notifications</span>
+                <span>Enable notifications</span>
+            </div>
+            <div class="list__item__right">
+                <label class="switch">
+                    <input type="checkbox" class="switch__input">
+                    <div class="switch__toggle">
+                        <div class="switch__handle"></div>
+                    </div>
+                </label>
+            </div>
+        </li>
+        <li class="list__item disable" id="wrapper-timer">
+            <div class="list__item__center">
+                <span>Reminder Interval</span>
+                <span>set an interval notifier</span>
+            </div>
+            <div class="list__item__right">
+                <label>
+                    <input type="time" class="text-input" value="" id="timer">
+                </label>
+            </div>
+        </li>
+    </ul>
+    <button class="button button--large button-close">close</button>
+</div>
+
+<script src="sw-register.js"></script>
+<script src="app.js"></script>
+
+</body>
+
+</html>

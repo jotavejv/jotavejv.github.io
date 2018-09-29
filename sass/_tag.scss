@@ -1,0 +1,98 @@
+.tag {
+    text-transform: lowercase;
+    padding: 5px 10px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #888;
+    border: 1px solid rgba(black, .2);
+    border-radius: 20px;
+
+    &:not(:last-child) {
+        margin-right: 8px;
+    }
+
+    &--sass {
+        border-color: #ffcdd2;
+    }
+
+    &--html {
+        border-color: #b3e5fc;
+    }
+
+    &--animation {
+        border-color: #e1bee7;
+    }
+
+    &--one-div {
+        border-color: #bcaaa4;
+    }
+
+    &--css {
+        border-color: #ffccbc;
+    }
+
+    &--javascript,
+    &--js {
+        border-color: #bdbdbd;
+    }
+
+    &--open-source,
+    &--github {
+        border-color: #BAE9E3;
+    }
+
+    &--npm {
+        border-color: #d4e157;
+    }
+
+    &--gulp {
+        border-color: #e1bee7;
+    }
+
+    &--svg {
+        border-color: #80cbc4;
+    }
+
+    &--responsive {
+        border-color: #c5cae9;
+    }
+
+    &--less {
+        border-color: #BAE9E3;
+    }
+
+    &--bower {
+        border-color: #ffb74d;
+    }
+
+    &--knockoutjs {
+        border-color: #dce775;
+    }
+
+    &--api {
+        border-color: #80deea;
+    }
+
+    &--maps {
+        border-color: #b2dfdb;
+    }
+
+    &--udacity {
+        border-color: #64b5f6;
+    }
+
+    &--canvas {
+        border-color: #fdd835;
+    }
+
+    &--pwa {
+        border-color: #fdd835;
+    }
+
+    &--offline {
+        border-color: #8d6e63;
+    }
+}

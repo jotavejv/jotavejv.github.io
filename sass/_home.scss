@@ -1,0 +1,176 @@
+.home {
+    $bgColor: #fff;
+    $fontColor: #3c3c3c;
+    background: $bgColor;
+    position: relative;
+    z-index: 9;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1);
+    transition: all .25s var(--easing);
+
+    &.is-hidden {
+        transform: scale(1.5);
+        opacity: 0;
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    .body {
+        height: 280px;
+        width: 500px;
+        position: relative;
+        font-family: "Limelight";
+        font-size: var(--fontSizeLogo);
+        color: $fontColor;
+        transform: translateX(-80px);
+
+        .line {
+            border-left: 4px solid $fontColor;
+            height: 0;
+            width: 0;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            box-shadow: 0 0 0 8px $bgColor;
+            z-index: 1;
+            transform: rotate(25deg);
+            animation: line .5s 1s var(--easing) forwards;
+        }
+
+        .text-left,
+        .text-right {
+            transform: rotate(25deg);
+            height: 340px;
+            width: 320px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-top: 20px;
+
+            p {
+                margin: 4px 0;
+            }
+        }
+
+        .text-right {
+            left: 265px;
+
+            p {
+                margin-left: -15px;
+                transform: translateX(-300px) translateY(150px) rotate(-25deg);
+                animation: entrance .5s var(--easing) forwards;
+
+                &:nth-child(1) {
+                    animation-delay: 1.5s;
+                }
+
+                &:nth-child(2) {
+                    animation-delay: 2.5s;
+                }
+
+                &:nth-child(3) {
+                    animation-delay: 2.75s;
+                }
+            }
+        }
+
+        .text-left {
+            left: -332px;
+
+            p {
+                text-align: right;
+                margin-top: -40px;
+                margin-right: -5px;
+                transform: translateX(300px) translateY(-150px) rotate(-25deg);
+                animation: entrance .5s var(--easing) forwards;
+                animation-delay: 1.75s;
+            }
+        }
+    }
+
+    nav {
+        $navBG: #f3f3f3;
+        font-family: "Open Sans";
+        position: absolute;
+        bottom: 0;
+        right: -8px;
+        z-index: 1;
+        font-size: var(--navFontSize);
+
+        //font-weight: bold;
+        ul {
+            display: flex;
+
+            li {
+                transform: translateY(20px);
+                opacity: 0;
+                visibility: hidden;
+                animation: nav .5s $navDelay var(--easing) forwards;
+
+                &:nth-child(2) {
+                    animation-delay: $navDelay + .15s;
+                }
+
+                &:nth-child(3) {
+                    animation-delay: $navDelay + .2s;
+                }
+
+                &:nth-child(4) {
+                    animation-delay: $navDelay + .25s;
+                }
+            }
+
+            a {
+                padding: 8px 12px;
+                line-height: 1;
+                transition: all .25s ease;
+                border-radius: 4px;
+                font-weight: bold;
+                color: rgba(black, .7);
+
+                &:hover {
+                    background: $navBG;
+                    color: inherit;
+                }
+            }
+        }
+
+        @keyframes nav {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    @keyframes entrance {
+        to {
+            transform: translateX(0) rotate(-25deg);
+        }
+    }
+
+    @keyframes line {
+        to {
+            height: 300px;
+        }
+    }
+
+    @keyframes menu {
+        to {
+            transform: scaleX(1);
+        }
+    }
+}

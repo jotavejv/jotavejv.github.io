@@ -1,0 +1,28 @@
+@include('head.html')
+<body>
+    <main>
+    	<div class="home">
+    		<div class="body">
+          @include("menu.html")
+          @include("intro.html")
+        </div>
+    	</div>
+      <div class="wrapper">
+        <div class="content">
+          <div class="content-close"><i class="fas fa-angle-left"></i> Back</div>
+          <div id="about" class="content-body">
+            @include("about.html")
+          </div>
+          <div id="labs" class="content-body">
+              @include("labs.html")
+          </div>
+          <div id="projects" class="content-body">
+              @include("projects.html")
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+
+</html>

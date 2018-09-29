@@ -1,0 +1,34 @@
+@import "_variables";
+@import "../node_modules/include-media/dist/_include-media.scss";
+@import "_reset";
+@import "_tag";
+@import "_tabs";
+@import "_cards";
+@import "_home";
+@import "_content";
+@import "_responsive";
+
+::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
+  background: 0 0;
+  -webkit-appearance: none;
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bbb;
+  -webkit-border-radius: 0;
+  border: 4px solid transparent;
+  background-clip: content-box;
+  border-radius: 10px
+}
+
+body,
+html,
+main {
+  height: 100%;
+  font-family: "Open Sans";
+  color: var(--bodyFontColor);
+  overflow: hidden;
+}
