@@ -1,169 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset='utf-8'/>
-    <meta name="description" content="Design Operations and Design Systems consultant"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta property="og:title" content="João Victor Santos | DesignOps | UX/UI Developer"/>
-    <meta property="og:description" content="Design Operations and Design Systems consultant"/>
-    <meta property="og:image" content="avatar.png"/>
-    <link rel="apple-touch-icon" sizes="57x57" href="/ico/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/ico/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/ico/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/ico/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/ico/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/ico/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/ico/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/ico/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/ico/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/ico/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/ico/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/ico/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-      crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Limelight">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>João Victor Santos | DesignOps | UX/UI Developer</title>
-</head>
-
+@include('head.html')
 <body>
-    @include('Divider.html', {
-    "header": "dfsfsdfsd",
-    "active": "active",
-    "html": "@include('static/devcenter/buttons/large.html')"
-    })
     <main>
     	<div class="home">
     		<div class="body">
-          <nav>
-            <ul>
-              <li>
-                <a href="">About</a>
-              </li>
-              <li>
-                <a href="">Labs</a>
-              </li>
-              <li>
-                <a href="">Projects</a>
-              </li>
-              <li id="contact">
-                <a href="https://www.linkedin.com/in/joaovictorjv/" target="_blank">Contact</a>
-              </li>
-            </ul>
-          </nav>
-    			<div class="line"></div>
-    			<div class="text-right">
-    				<p>Creative</p>
-    				<p>productive</p>
-    				<p>mind</p>
-    			</div>
-    			<div class="text-left">
-    				<p>and</p>
-    			</div>
+          @include("menu.html")
+          @include("intro.html")
         </div>
     	</div>
       <div class="wrapper">
         <div class="content">
           <div class="content-close"><i class="fas fa-angle-left"></i> Back</div>
           <div id="about" class="content-body">
-            <div>
-              <div class="heading-about">
-                <h1 class="heading">Hello</h1>
-              </div>
-              <div class="tabs">
-                <ul>
-                  <li class="tabs__item active">
-                    Intro
-                  </li>
-                  <li class="tabs__item">
-                    Bio
-                  </li>
-                </ul>
-                <div class="tabs__content">
-                  <div class="social">
-                    <ul>
-                      <li data-track="linkedin">
-                        <a href="https://www.linkedin.com/in/joaovictorjv/" target="_blank" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
-                      </li>
-                      <li data-track="codepen">
-                        <a href="https://codepen.io/jotavejv" target="_blank" title="codepen"><i class="fab fa-codepen"></i></a>
-                      </li>
-                      <li data-track="github">
-                        <a href="https://github.com/jotavejv" target="_blank" title="stack overflow"><i class="fab fa-github"></i></a>
-                      </li>
-                      <li data-track="medium">
-                        <a href="https://medium.com/@jotavejv" target="_blank" title="medium"><i class="fab fa-medium"></i></a>
-                      </li>
-                      <li data-track="css animations">
-                        <a href="https://plus.google.com/u/1/communities/118377057769827266257" target="_blank" title="google plus animation css"><i class="fab fa-google-plus-g"></i></a>
-                      </li>
-                      <li data-track="stack overflow">
-                        <a href="https://stackoverflow.com/users/2097607/jotavejv" target="_blank" title="stack overflow"><i class="fab fa-stack-overflow"></i></a>
-                      </li>
-                      <li data-track="twitter">
-                        <a href="https://twitter.com/_jotavejv" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a>
-                      </li>
-                      <li data-track="e-mail">
-                        <a href="mailto:contatos.jv@hotmail.com" title="e-mail"><i class="fas fa-envelope"></i></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div id="intro" class="active">
-                     <p>Hi, I'm João Santos an experienced self-taught person entirely focused in <i>DesignOps</i>, <i>Design Systems</i>, <i>Agile methodologies</i>, <i>Leadership</i> and <i>Product management</i>.</p>
-                     <p>Actually I work as DesignOps Lead at <a href="https://www.softexpert.com/" target="_blank" class="link" data-track="Soft link">SoftExpert</a>. I invite you to take a look at my interview about <a href="https://www.designops.lol/interviews/designops-at-softexpert/" target="_blank" class="link" data-track="designops article">Design Operations</a> to learn more.</p>
-                     <p>For further information you can access my social links :)</p>
-                     <ul class="short-bio-list">
-                       <li>Strong knowledge in CSS layout and front-end architecture.</li>
-                       <li>UX, Agile, PWA and Vanilla JS enthusiast</li>
-                       <li>Result oriented person</li>
-                       <li>Leadership, empathy and communication skills</li>
-                     </ul>
-                  </div>
-                  <div id="bio">
-                    <p>I started my career at <i>web development</i> around 2010. During this time I aimed capacitating myself in front-end development,
-                    focus in <i>User Interface</i>, working directly with modular architecture in html, componentization and <i>advanced CSS</i>, from animations
-                    and <i>pixel perfect</i> to browser performance improvements.</p>
-                    <p>With time I’d been more and more involved with UI development and engaging fully with teams of <i>User Experience</i>. Thereby I’ve
-                    acquired a background knowledge in UX too, while participating in discussions about user experience.</p>
-                    <p>I´m constantly seeking to improve my knowledge and getting to know new people. I currently work as <i>DesignOps</i>, focusing entirely
-                    in team leadership and product management. I am responsible for maintaining the focus and productivity, as well as increasing in performance, developing and develivering
-                    scalability of products through <i>Design Systems</i>.</p>
-                    <p>I act as bridge between the teams of <i>engineering</i> and <i>user experience</i>, for I ease the communication of these two teams. As
-                    well as I participate in daily decision of the UX team and technical feasibility for the Engineering team.</p>
-                    <p>I contribute with the professional growth of each one in the team by doing the <i>One-on-One</i> and <i>performance review</i>.
-                    In general I'm responsible for connecting and also balancing three parts:</p>
-                    <ol>
-                      <li>Company's vision, the culture and business strategies</li>
-                      <li>Deliverables and team focus</li>
-                      <li>Team engagement, happiness and motivation</li>
-                    </ol>
-                    <p>I try to write <a href="https://medium.com/@jotavejv" target="_blank" class="link" data-track="articles link">articles</a> whenever possible, study leadership and product management and also create <a href="https://github.com/jotavejv" target="_blank" class="link" data-track="github open source link">open source</a> projects or
-                    just things <a href="https://codepen.io/jotavejv" target="_blank" class="link" data-track="codepen profile from Bio page">using CSS</a><3</p>
-                    <p>Take a look at my <a href="https://www.linkedin.com/in/joaovictorjv/" target="_blank" class="link" data-track="linkedin from Bio page">linkedin profile</a> to see more about
-                    my professional skills and career timeline.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            @include("about.html")
           </div>
           <div id="labs" class="content-body">
-            <div class="labs">
-              <h1 class="heading">Labs</h1>
-              <p class="page-description">This is my featured list! <br> You can find my codepen's profile and <a href="https://codepen.io/jotavejv/" target="_blank" class="link" data-track="codepen profile Labs">all experiments</a>.
-              </p>
-                <div class="grid-container"></div>
-            </div>
+              @include("labs.html")
           </div>
           <div id="projects" class="content-body">
-            <div class="projects">
-              <h1 class="heading">Projects</h1>
-              <p class="page-description">Some of my personal and open source projects :)</p>
-                <div class="grid-container"></div>
-            </div>
+              @include("projects.html")
           </div>
         </div>
       </div>

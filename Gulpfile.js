@@ -45,21 +45,23 @@ function handlePublic(){
         .pipe(fileinclude(fileincludeOptions))
         .pipe(rename("index.html"))
         .pipe(gulp.dest('./'))
-        browserSync.reload();
     })
 }
 
 gulp.task('server', ['sass'], function () {
-
     browserSync.init({
         server: "./"
     });
-
     gulp.watch('./sass/**/*.scss', ['sass']);
     gulp.watch('./js/*.js', ['js']);
-    gulp.watch('./*.html', handlePublic);
+    gulp.watch('./**/*.html', function(){
+        handlePublic();
+        setTimeout(e => browserSync.reload(), 1000);
+    });
 });
 
-gulp.task('build', ['sass'], function () {});
+gulp.task('build', ['sass', 'js'], function () {
+    handlePublic();
+});
 
 gulp.task('default',['server']);
