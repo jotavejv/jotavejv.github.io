@@ -2,7 +2,13 @@
 # node_js:
 #   - "8"
 # before_script:
-#   - cd creative
 #   - npm install -g gulp-cli
 #   - npm install gulp
 # script: gulp build
+# deploy:
+#   provider: pages
+#   skip-cleanup: true
+#   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+#   keep-history: true
+#   on:
+#     branch: master

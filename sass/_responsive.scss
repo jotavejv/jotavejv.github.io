@@ -1,0 +1,76 @@
+$responsiveMD: "<768px";
+$responsiveSM: "<500px";
+
+@include media($responsiveSM) {
+    :root {
+        --gridColumn: 1;
+        --fontSizeLogo: 40px;
+        --navFontSize: 16px;
+        --contentColor: #f3f3f3;
+    }
+
+    .card__title {
+        margin-bottom: 30px;
+    }
+
+    .card__description {
+        max-width: calc(100% - 50px);
+    }
+
+    .tabs__content {
+        padding: 32px 20px;
+
+        .social {
+            background: #fff;
+            position: fixed;
+            top: auto;
+            bottom: 0;
+            width: 100%;
+            justify-content: center;
+            padding: 10px;
+            font-size: 20px;
+
+            li {
+                padding: 0;
+                margin: 0 !important;
+
+                a {
+                    padding: 10px 16px;
+                }
+            }
+        }
+    }
+}
+
+
+@include media($responsiveSM) {
+
+    #about,
+    #labs,
+    #projects {
+        padding: 5px;
+    }
+
+    .wrapper .content .heading-about {
+        margin-bottom: 20px;
+    }
+
+    .home {
+        nav {
+            margin: auto;
+            width: 500px;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            right: -200px;
+        }
+
+        .body {
+            width: 100%;
+
+            .text-right {
+                left: 54%;
+            }
+        }
+    }
+}

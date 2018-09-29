@@ -1,0 +1,113 @@
+.wrapper {
+    background: var(--contentColor);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow-y: auto;
+
+    .content {
+        display: none;
+        max-width: var(--layout);
+        margin: 0 auto;
+        padding-top: 30px;
+
+        &.active {
+            display: block;
+        }
+
+        .content-close {
+            opacity: 0;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: right;
+            padding: 0 20px;
+            padding-bottom: 30px;
+            transition: opacity .5s var(--easing);
+
+            i {
+                transition: all .2s ease;
+            }
+
+            &:hover {
+                i {
+                    margin-right: 5px;
+                    color: $linkColor;
+                }
+            }
+
+            &.active {
+                opacity: 1;
+            }
+        }
+
+        .link {
+            color: $linkColor;
+            text-decoration: underline;
+            transition: color .15s linear;
+
+            &:hover {
+                color: darken($linkColor, 20);
+            }
+        }
+
+        .heading-about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 70px;
+        }
+
+        .grid-container {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(var(--gridColumn), 1fr);
+            grid-gap: var(--gridGap);
+            padding-bottom: 70px;
+        }
+    }
+}
+
+#about,
+#labs,
+#projects {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    transition: opacity .5s var(--easing);
+    padding: 0 20px;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        height: auto;
+    }
+}
+
+.heading {
+    font-family: "Limelight";
+    position: relative;
+    margin-bottom: 15px;
+    display: inline-flex;
+    transition: all .2s ease;
+
+    &:hover {
+        letter-spacing: 2px;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-bottom: 4px solid currentColor;
+        width: 45px;
+    }
+}
+
+.page-description {
+    font-size: 14px;
+}
