@@ -6,13 +6,13 @@ before_script:
   - npm install gulp
 script: gulp build
 deploy:
-  provider: script
+  provider: pages
+  target-branch: master
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
   on:
     branch: dev
-    condition: master
 env:
   matrix:
     secure: kttzVsq/mcEvKEFRdgJ0g0OXrGpXFvfW1NhCAX9pGVnAySa5nRCKOk4QiAHqdcHfNlMxsLMlCLXd+udJsX5fRElJxVRlDmFbovOl03NBDaam5ecfKGPMRvpgEXqAI2XXw8fvL8l/jG6bcsf3wSwmAJoK+aWW8ktP8AQOdVw0A8n9uP95MZwQjxhzKq0YY3LsrqE3Cc09wEHfGtonawc/Isk1BDTvO1/+Rz5bMIQcgIwzhLctJSMM/Q3CvCfgh/9CTTCdDW1YdDUvCIce8BrGhGO9MXW2oM/XoDVhzMqWUQtpsVAME3WLhu5b9QuXAyuHwXhQhAuyiajk+AZrY7Tg0bTQwwj6iZO8UIemBXpB1fa1HDzZ5s4eiU3Irj36ZhFfDdr6YL36qsQgfSvs6wSFw+19tvOagqgc6v0l1CQFhzw2/cT49rF8ztfBSqRWX2K7UAwpbkxDNCDYyfINYkUcgMEeLb6eukP5HkqvkawZMYzoMQmCD5LmYInHxGBCyD7fgI1Z4aRTFJbUDBgvcWYs91aV+z3qy33+IOTBUfvH1bT67NoJ8hc4Cc7qK1rLSdJje5/C2322+NCjlJF4/Bxjiki8LRyDnhwqdtANLDuQ/O2UjtsWpeCcc9B6Mfv3xxMrnbjXCOvUS3C80jU6BgC0ezwjHC8IsqQH9BgXQ+Q6g14=
