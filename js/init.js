@@ -8,7 +8,9 @@ import 'social';
 import 'tabs';
 
 export function init() {
-    // labs
+    console.log("Hello =)");
+    
+    // Labs
     getApi("labs").then(data => {
         render('#labs', Cards(data.sort((a, b) => a.order - b.order)));
     });
