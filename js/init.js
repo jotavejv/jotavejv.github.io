@@ -1,4 +1,4 @@
-import log from "stylish-log";
+import log from "log";
 import { getApi } from 'api';
 import { render } from 'render';
 import { Cards } from 'cards';
