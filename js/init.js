@@ -1,6 +1,7 @@
-import { Cards } from 'cards';
+import log from "stylish-log";
 import { getApi } from 'api';
 import { render } from 'render';
+import { Cards } from 'cards';
 import 'track';
 import 'menu';
 import 'links';
@@ -8,7 +9,8 @@ import 'social';
 import 'tabs';
 
 export function init() {
-    console.log("Hello =)");
+    log.styles.default = 'font-size: 20px;';
+    log.show("Gotcha! 😅🔍💻")();
     
     // Labs
     getApi("labs").then(data => {
