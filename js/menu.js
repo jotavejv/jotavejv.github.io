@@ -2,9 +2,6 @@ import { $$, $ } from 'dom';
 import { variables } from 'global';
 import { pageview, track } from 'track';
 
-console.log(variables.page);
-
-
 const Menu = (function () {
     Array.from($$('nav li')).map(link => {
         link.addEventListener('click', function (e) {

@@ -16,6 +16,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "include-media": "^1.4.9",
+    "stylish-log": "^1.0.5",
     "webpack": "^3.6.0",
     "webpack-stream": "^4.0.0"
   },
