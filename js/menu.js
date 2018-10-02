@@ -10,6 +10,9 @@ const Menu = (function () {
                 return;
             };
             e.preventDefault();
+            if (variables.page){
+                $(`#${variables.page}`).classList.remove('active');
+            }
             $('.home').classList.add('is-hidden');
             variables.page = e.target.textContent.toLowerCase();
             setHash(variables.page);
