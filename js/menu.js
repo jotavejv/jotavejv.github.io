@@ -1,5 +1,5 @@
 import { $$, $ } from 'dom';
-import { variables } from 'global';
+import { variables, setHash } from 'global';
 import { pageview, track } from 'track';
 
 const Menu = (function () {
@@ -12,6 +12,7 @@ const Menu = (function () {
             e.preventDefault();
             $('.home').classList.add('is-hidden');
             variables.page = e.target.textContent.toLowerCase();
+            setHash(variables.page);
             $('.content').classList.add('active');
             $('nav').classList.add('is-hidden');
             setTimeout(function () {
