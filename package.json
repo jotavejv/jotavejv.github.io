@@ -18,7 +18,8 @@
     "include-media": "^1.4.9",
     "stylish-log": "^1.0.5",
     "webpack": "^3.6.0",
-    "webpack-stream": "^4.0.0"
+    "webpack-stream": "^4.0.0",
+    "minimatch": ">=3.0.2"
   },
   "devDependencies": {
     "browser-sync": "^2.24.7",
