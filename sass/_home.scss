@@ -141,8 +141,9 @@
                 color: rgba(black, .7);
 
                 &:hover {
-                    background: $navBG;
-                    color: inherit;
+                    //background: $navBG;
+                    //color: inherit;
+                    color: $linkColor;
                 }
             }
         }

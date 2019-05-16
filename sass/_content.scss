@@ -29,12 +29,13 @@
 
             i {
                 transition: all .2s ease;
+                color: $linkColor;
             }
 
             &:hover {
                 i {
                     margin-right: 5px;
-                    color: $linkColor;
+                    //color: $linkColor;
                 }
             }
 
@@ -101,12 +102,15 @@
             justify-content: center;
             top: -90px;
             font-size: 20px;
+            color: #5d5d5d;
             li:not(:last-child){
                 margin-right: 10px;
             }
         }
         .tabs__content{
             border-radius: 5px;
+            font-size: 16px;
+            padding: 70px;
         }
     }
 }
