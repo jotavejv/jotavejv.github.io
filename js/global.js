@@ -19,6 +19,10 @@ function closeContent(flag) {
 }
 $('.content-close').addEventListener('click', e => closeContent(true));
 
+// about tabs
+const disableBio = true;
+$('#about').classList.toggle('disableBio', disableBio);
+
 // handle hashs (for mobile experience)
 window.onpopstate = function (e) {
     currentHash = window.location.hash;
