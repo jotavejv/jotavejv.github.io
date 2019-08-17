@@ -32,3 +32,26 @@ main {
   color: var(--bodyFontColor);
   overflow: hidden;
 }
+
+.designopslab{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  text-align: center;
+  transform: translateY(50px);
+  opacity: 0;
+  z-index: 999;
+  animation: lab .5s 4s ease-out forwards;
+  background: #fff;
+  img{
+    transform: scale(.6);
+  }
+}
+@keyframes lab{
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
