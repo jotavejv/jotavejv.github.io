@@ -92,6 +92,9 @@
 #about.disableBio{
     .heading-about{
         margin-bottom: 90px;
+        h1{
+            //display: none;
+        }
     }
     .tabs {
         max-width: 860px;
@@ -100,7 +103,7 @@
         }
         .social{
             justify-content: center;
-            top: -90px;
+            top: -40px;
             font-size: 20px;
             color: #5d5d5d;
             li:not(:last-child){
