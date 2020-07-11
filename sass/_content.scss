@@ -91,7 +91,7 @@
 
 #about.disableBio{
     .heading-about{
-        margin-bottom: 90px;
+        margin-bottom: 50px;
         h1{
             //display: none;
         }
@@ -124,6 +124,8 @@
     margin-bottom: 15px;
     display: inline-flex;
     transition: all .2s ease;
+    font-size: 2.25em;
+    color: #e05f7e;
 
     &:hover {
         letter-spacing: 2px;
@@ -140,5 +142,5 @@
 }
 
 .page-description {
-    font-size: 14px;
+    font-size: 16px;
 }
