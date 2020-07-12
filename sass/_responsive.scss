@@ -4,9 +4,8 @@ $responsiveXS: "<400px";
 
 @include media($responsiveMD) {
     :root {
-        --contentColor: #fbfbfb;
+        //--contentColor: #fbfbfb;
     }
-
     .card__title {
         margin-bottom: 30px;
     }
