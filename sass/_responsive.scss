@@ -70,6 +70,9 @@ $responsiveXS: "<400px";
     :root{
         --gridColumn: 1;
     }
+    .tabs__content{
+        padding: 40px 30px !important;
+    }
 }
 
 @include media($responsiveXS) {
