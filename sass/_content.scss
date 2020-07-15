@@ -158,4 +158,9 @@
     padding: 10px 5px;
     border-radius: 50px;
     transition: all .15s linear;
+    
+    &:hover{
+        background: #e05f7e;
+        color: white;
+    }
 }
